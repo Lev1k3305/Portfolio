@@ -91,8 +91,12 @@
         .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
         input, textarea { width: 100%; background: var(--surface); border: 1px solid var(--border); padding: 12px; color: #fff; margin-bottom: 10px; font-family: inherit; }
         .social-links { display: flex; gap: 20px; margin-top: 20px; }
-        .social-item { color: var(--text-dim); font-size: 1.8rem; transition: 0.3s; }
-        .social-item:hover { color: var(--accent); transform: scale(1.1); }
+        .social-item { color: var(--text-dim); font-size: 1.8rem; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); display: flex; }
+        .social-item:hover { transform: scale(1.2) translateY(-5px); }
+        .github:hover { color: #ffffff; filter: drop-shadow(0 0 10px #ffffff); }
+        .telegram:hover { color: #24A1DE; filter: drop-shadow(0 0 10px #24A1DE); }
+        .instagram:hover { color: #E1306C; filter: drop-shadow(0 0 10px #E1306C); }
+        .whatsapp:hover { color: #25D366; filter: drop-shadow(0 0 10px #25D366); }
 
         @media (max-width: 768px) {
             .contact-layout, .hero-buttons { grid-template-columns: 1fr; flex-direction: column; }
