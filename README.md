@@ -1,4 +1,4 @@
-# 💀 ALDIYAR // DEDSEC_OPERATIVE_PORTFOLIO
+# 💀 0perat0r // DEDSEC_OPERATIVE_PORTFOLIO
 
 ![Status](https://img.shields.io/badge/STATUS-ONLINE-00f3ff?style=for-the-badge&logo=statuspage)
 ![Node](https://img.shields.io/badge/NODE-7182_PAVLODAR-ff0055?style=for-the-badge)
@@ -22,14 +22,6 @@
 * **[ CODEFLOW ]** — образовательная платформа для обучения программированию с интегрированным AI-наставником.
 * **[ BerryControls ]** — проект по созданию системы управления с кастомным логотипом.
 * **[ W.R.E.N.C.H AI ]** — разработка автономного ИИ-агента.
-
----
-
-## 📡 КАНАЛ_СВЯЗИ
-
-Если тебе нужно передать данные или обсудить проект:
-
-* **Telegram:** [@Aldik_4005](https://t.me/Aldik_4005)
 
 ---
 
