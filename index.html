@@ -109,6 +109,21 @@
             text-transform: uppercase; text-decoration: none; border: 1px solid var(--accent); color: var(--accent);
         }
         .btn-pink { border-color: var(--pink); color: var(--pink); }
+
+        /* Accessibility: Focus visible states */
+        :focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 4px;
+        }
+
+        .social-item:focus-visible {
+            transform: scale(1.2) translateY(-5px);
+            color: var(--accent);
+        }
+
+        .lang-btn:focus-visible {
+            border-color: var(--accent);
+        }
     </style>
 </head>
 <body>
@@ -120,11 +135,11 @@
         <a href="#projects" data-key="nav_projects">// ПРОЕКТЫ</a>
         <a href="#contacts" data-key="nav_contacts">// СВЯЗЬ</a>
         <div class="lang-switch">
-            <button class="lang-btn active" onclick="setLang('ru')">RU</button>
-            <button class="lang-btn" onclick="setLang('kz')">KZ</button>
-            <button class="lang-btn" onclick="setLang('en')">EN</button>
-            <button class="lang-btn" onclick="setLang('jp')">JP</button>
-            <button class="lang-btn" onclick="setLang('ch')">CN</button>
+            <button class="lang-btn active" onclick="setLang('ru')" aria-label="Switch to Russian">RU</button>
+            <button class="lang-btn" onclick="setLang('kz')" aria-label="Switch to Kazakh">KZ</button>
+            <button class="lang-btn" onclick="setLang('en')" aria-label="Switch to English">EN</button>
+            <button class="lang-btn" onclick="setLang('jp')" aria-label="Switch to Japanese">JP</button>
+            <button class="lang-btn" onclick="setLang('ch')" aria-label="Switch to Chinese">CN</button>
         </div>
     </nav>
 
@@ -181,18 +196,18 @@
             <h2 class="section-title" data-key="title_contact">04_КАНАЛ_СВЯЗИ</h2>
             <div class="contact-layout">
                 <form action="https://formspree.io/f/zakisev775@gmail.com" method="POST">
-                    <input type="text" name="name" data-placeholder="ph_name" placeholder="ВАШЕ ИМЯ //" required>
-                    <input type="email" name="email" data-placeholder="ph_email" placeholder="EMAIL //" required>
-                    <textarea name="message" rows="5" data-placeholder="ph_msg" placeholder="ВАШЕ СООБЩЕНИЕ //" required></textarea>
+                    <input type="text" name="name" data-placeholder="ph_name" placeholder="ВАШЕ ИМЯ //" aria-label="Your Name" required>
+                    <input type="email" name="email" data-placeholder="ph_email" placeholder="EMAIL //" aria-label="Email Address" required>
+                    <textarea name="message" rows="5" data-placeholder="ph_msg" placeholder="ВАШЕ СООБЩЕНИЕ //" aria-label="Your Message" required></textarea>
                     <button type="submit" class="btn btn-pink" style="width: 100%;" data-key="btn_send">ОТПРАВИТЬ ПАКЕТ</button>
                 </form>
                 <div style="border-left: 1px solid var(--border); padding-left: 40px;">
                     <p data-key="loc">Локация: Павлодар, Казахстан</p>
                     <div class="social-links">
-                        <a href="https://github.com/Lev1k3305" target="_blank" class="social-item github"><i class="fab fa-github"></i></a>
-                        <a href="https://t.me/Aldik_4005" target="_blank" class="social-item telegram"><i class="fab fa-telegram"></i></a>
-                        <a href="https://www.instagram.com/aldik_3305" target="_blank" class="social-item instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="https://wa.me/77051603072" target="_blank" class="social-item whatsapp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://github.com/Lev1k3305" target="_blank" class="social-item github" aria-label="GitHub Profile"><i class="fab fa-github"></i></a>
+                        <a href="https://t.me/Aldik_4005" target="_blank" class="social-item telegram" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+                        <a href="https://www.instagram.com/aldik_3305" target="_blank" class="social-item instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/77051603072" target="_blank" class="social-item whatsapp" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
             </div>
