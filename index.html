@@ -268,11 +268,11 @@
         <a href="#projects" data-key="nav_projects">// ПРОЕКТЫ</a>
         <a href="#contacts" data-key="nav_contacts">// СВЯЗЬ</a>
         <div class="lang-switch">
-            <button class="lang-btn active" onclick="setLang('ru')" aria-label="Switch to Russian">RU</button>
-            <button class="lang-btn" onclick="setLang('kz')" aria-label="Switch to Kazakh">KZ</button>
-            <button class="lang-btn" onclick="setLang('en')" aria-label="Switch to English">EN</button>
-            <button class="lang-btn" onclick="setLang('jp')" aria-label="Switch to Japanese">JP</button>
-            <button class="lang-btn" onclick="setLang('ch')" aria-label="Switch to Chinese">CN</button>
+            <button class="lang-btn active" onclick="setLang('ru')" aria-label="Switch to Russian" aria-pressed="true">RU</button>
+            <button class="lang-btn" onclick="setLang('kz')" aria-label="Switch to Kazakh" aria-pressed="false">KZ</button>
+            <button class="lang-btn" onclick="setLang('en')" aria-label="Switch to English" aria-pressed="false">EN</button>
+            <button class="lang-btn" onclick="setLang('jp')" aria-label="Switch to Japanese" aria-pressed="false">JP</button>
+            <button class="lang-btn" onclick="setLang('ch')" aria-label="Switch to Chinese" aria-pressed="false">CN</button>
         </div>
     </nav>
 
@@ -404,7 +404,11 @@
             }
             document.querySelectorAll('.lang-btn').forEach(btn => {
                 btn.classList.remove('active');
-                if(btn.innerText.toLowerCase() === lang || (lang === 'ch' && btn.innerText === 'CN')) btn.classList.add('active');
+                btn.setAttribute('aria-pressed', 'false');
+                if(btn.innerText.toLowerCase() === lang || (lang === 'ch' && btn.innerText === 'CN')) {
+                    btn.classList.add('active');
+                    btn.setAttribute('aria-pressed', 'true');
+                }
             });
             document.querySelectorAll('[data-key]').forEach(el => {
                 const key = el.getAttribute('data-key');
@@ -444,6 +448,39 @@
         }, observerOptions);
 
         sections.forEach(section => observer.observe(section));
+
+        // Form Handling
+        const contactForm = document.querySelector('form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const button = contactForm.querySelector('button[type="submit"]');
+                button.innerText = 'TRANSMITTING...';
+                button.disabled = true;
+
+                try {
+                    const response = await fetch(contactForm.action, {
+                        method: 'POST',
+                        body: new FormData(contactForm),
+                        headers: { 'Accept': 'application/json' }
+                    });
+
+                    if (response.ok) {
+                        contactForm.innerHTML = `
+                            <div style="text-align: center; padding: 40px; border: 1px solid var(--accent); color: var(--accent); background: var(--surface);">
+                                <h3 style="margin-bottom: 10px; letter-spacing: 2px;">PACKET_TRANSMITTED // SUCCESS</h3>
+                                <p style="font-size: 0.8rem; color: var(--text-dim);">MISSION_ACCOMPLISHED. DATA_SECURED.</p>
+                            </div>
+                        `;
+                    } else {
+                        throw new Error('TRANSMISSION_FAILED');
+                    }
+                } catch (error) {
+                    button.innerText = 'RETRY_TRANSMISSION';
+                    button.disabled = false;
+                }
+            });
+        }
     </script>
 </body>
 </html>
