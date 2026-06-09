@@ -7,9 +7,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <link rel="preload" href="scr/assets/image.gif" as="image">
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="preload" href="scr/assets/image.gif" as="image" fetchpriority="high">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"></noscript>
     <style>
         :root {
             --bg: #08080c;
@@ -148,7 +149,7 @@
 
     <div class="container">
         <section id="home" style="border:none">
-            <div class="profile-card"><img src="scr/assets/image.gif" alt="0perat0r_"></div>
+            <div class="profile-card"><img src="scr/assets/image.gif" alt="0perat0r_" width="160" height="73" decoding="async"></div>
             <div class="hero-info">
                 <span data-key="status">[ СТАТУС: В СЕТИ ]</span>
                 <h1>0perat0r_</h1>
@@ -261,7 +262,15 @@
             }
         };
 
+        let fontsLoaded = false;
         function setLang(lang) {
+            if ((lang === 'jp' || lang === 'ch') && !fontsLoaded) {
+                const link = document.createElement('link');
+                link.rel = 'stylesheet';
+                link.href = 'https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+SC:wght@400;700&display=swap';
+                document.head.appendChild(link);
+                fontsLoaded = true;
+            }
             document.querySelectorAll('.lang-btn').forEach(btn => {
                 btn.classList.remove('active');
                 if(btn.innerText.toLowerCase() === lang || (lang === 'ch' && btn.innerText === 'CN')) btn.classList.add('active');
@@ -284,10 +293,13 @@
             threshold: 0.6
         };
 
+        let currentActiveId = null;
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const id = entry.target.getAttribute('id');
+                    if (id === currentActiveId) return;
+                    currentActiveId = id;
                     navLinks.forEach(link => {
                         link.classList.remove('active');
                         link.removeAttribute('aria-current');
