@@ -1,4 +1,4 @@
-# 💀 0perat0r // DEDSEC_OPERATIVE_PORTFOLIO
+# 💀 Prosto_Proger // DEDSEC_OPERATIVE_PORTFOLIO
 
 ![Status](https://img.shields.io/badge/STATUS-ONLINE-00f3ff?style=for-the-badge&logo=statuspage)
 ![Node](https://img.shields.io/badge/NODE-7182_PAVLODAR-ff0055?style=for-the-badge)
