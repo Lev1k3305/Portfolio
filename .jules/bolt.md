@@ -9,3 +9,7 @@
 ## 2025-06-08 - Favoring Preconnect over Brittle Preloads
 **Learning:** Preloading specific font assets from external CDNs (like Google Fonts) can be brittle as the hashed filenames may change without notice. `preconnect` provides most of the benefit with none of the maintenance risk.
 **Action:** Use `preconnect` for third-party dynamic assets and `preload` only for internal, stable assets.
+
+## 2026-06-09 - Critical Path Optimization: Lazy Fonts and Non-blocking CSS
+**Learning:** For multi-lingual static sites, bundling all language-specific fonts into the initial payload significantly degrades FCP and LCP. Dynamically injecting stylesheets for non-primary languages (e.g., JP/CN) reduces the initial critical path. Combining this with the "media=print" trick for non-critical CSS (Font Awesome) further unblocks rendering.
+**Action:** Always audit Google Fonts payloads and defer non-primary language families to user interaction or late-load.
