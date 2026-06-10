@@ -49,6 +49,8 @@
             z-index: 2000;
             background-size: 100% 2px, 3px 100%;
             pointer-events: none;
+            /* BOLT: Promote to its own compositor layer to reduce repaint cost on scroll */
+            will-change: transform;
         }
 
         nav {
@@ -393,6 +395,11 @@
             }
         };
 
+        // BOLT: Cache DOM elements for language switching to avoid repeated lookups
+        const langBtns = document.querySelectorAll('.lang-btn');
+        const translatableEls = document.querySelectorAll('[data-key]');
+        const placeholderEls = document.querySelectorAll('[data-placeholder]');
+
         let fontsLoaded = false;
         function setLang(lang) {
             if ((lang === 'jp' || lang === 'ch') && !fontsLoaded) {
@@ -402,23 +409,40 @@
                 document.head.appendChild(link);
                 fontsLoaded = true;
             }
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                btn.classList.remove('active');
-                if(btn.innerText.toLowerCase() === lang || (lang === 'ch' && btn.innerText === 'CN')) btn.classList.add('active');
+
+            // BOLT: Use cached buttons and textContent (faster than innerText)
+            langBtns.forEach(btn => {
+                const btnText = btn.textContent;
+                const isActive = btnText.toLowerCase() === lang || (lang === 'ch' && btnText === 'CN');
+                btn.classList.toggle('active', isActive);
             });
-            document.querySelectorAll('[data-key]').forEach(el => {
+
+            // BOLT: Use cached elements and textContent to avoid layout thrashing
+            translatableEls.forEach(el => {
                 const key = el.getAttribute('data-key');
-                if (translations[lang][key]) el.innerText = translations[lang][key];
+                const translation = translations[lang][key];
+                if (translation) el.textContent = translation;
             });
-            document.querySelectorAll('[data-placeholder]').forEach(el => {
+
+            placeholderEls.forEach(el => {
                 const key = el.getAttribute('data-placeholder');
-                if (translations[lang][key]) el.setAttribute('placeholder', translations[lang][key]);
+                const translation = translations[lang][key];
+                if (translation) el.setAttribute('placeholder', translation);
             });
         }
 
-        // Scroll Spy Logic
+        // BOLT: Optimized Scroll Spy Logic
         const sections = document.querySelectorAll('section');
         const navLinks = document.querySelectorAll('nav a');
+
+        // BOLT: Map for O(1) link lookup
+        const navLinkMap = new Map();
+        navLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            if (href && href.startsWith('#')) {
+                navLinkMap.set(href.substring(1), link);
+            }
+        });
 
         const observerOptions = {
             threshold: 0.6
@@ -430,15 +454,22 @@
                 if (entry.isIntersecting) {
                     const id = entry.target.getAttribute('id');
                     if (id === currentActiveId) return;
-                    currentActiveId = id;
-                    navLinks.forEach(link => {
-                        link.classList.remove('active');
-                        link.removeAttribute('aria-current');
-                        if (link.getAttribute('href') === `#${id}`) {
-                            link.classList.add('active');
-                            link.setAttribute('aria-current', 'page');
+
+                    // BOLT: Avoid full navLink iteration by updating only the changed links
+                    if (currentActiveId) {
+                        const oldLink = navLinkMap.get(currentActiveId);
+                        if (oldLink) {
+                            oldLink.classList.remove('active');
+                            oldLink.removeAttribute('aria-current');
                         }
-                    });
+                    }
+
+                    currentActiveId = id;
+                    const newLink = navLinkMap.get(id);
+                    if (newLink) {
+                        newLink.classList.add('active');
+                        newLink.setAttribute('aria-current', 'page');
+                    }
                 }
             });
         }, observerOptions);
