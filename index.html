@@ -259,6 +259,24 @@
         .lang-btn:focus-visible {
             border-color: var(--accent);
         }
+
+        /* Status Dot */
+        .status-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background-color: #00ff00;
+            border-radius: 50%;
+            margin-right: 8px;
+            box-shadow: 0 0 8px #00ff00;
+            animation: pulse-green 2s infinite;
+        }
+
+        @keyframes pulse-green {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 255, 0, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(0, 255, 0, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 255, 0, 0); }
+        }
     </style>
 </head>
 <body>
@@ -282,7 +300,10 @@
         <section id="home" style="border:none">
             <div class="profile-card"><img src="scr/assets/image.gif" alt="Prosto_Proger" width="160" height="73" decoding="async"></div>
             <div class="hero-info">
-                <span data-key="status">[ СТАТУС: В СЕТИ ]</span>
+                <div style="display: flex; align-items: center; justify-content: center; gap: 5px; margin-bottom: 5px;">
+                    <span class="status-dot"></span>
+                    <span data-key="status">[ СТАТУС: В СЕТИ ]</span>
+                </div>
                 <h1 class="glitch" data-text="Prosto_Proger">Prosto_Proger</h1>
                 <div class="typing-container">
                     <p data-key="hero_desc">Full-stack разработчик. Специализируюсь на мобильной разработке (Flutter) и создании современных веб-интерфейсов.</p>
@@ -359,7 +380,7 @@
                 btn_projects: "ПРОЕКТЫ", btn_contact: "СВЯЗАТЬСЯ", title_skills: "01_ТЕХНИЧЕСКИЙ_СТЕК", title_projects: "03_АРХИВ_ПРОЕКТОВ",
                 edu_now: "2024 — НАСТОЯЩЕЕ ВРЕМЯ", edu_uni: "Торайгыров Университет", edu_uni_desc: "Computer Science // Бакалавриат",
                 edu_coll: "Павлодарский Колледж IT", edu_coll_desc: "Программное обеспечение // Диплом с отличием",
-                title_contact: "04_КАНАЛ_СВЯЗИ", btn_send: "ОТПРАВИТЬ ПАКЕТ", ph_name: "ВАШЕ ИМЯ //", ph_email: "EMAIL //", ph_msg: "ВАШЕ СООБЩЕНИЕ //", loc: "Локация: Павлодар, Казахстан", p1_desc: "AI Mentor система для анализа кода в реальном времени."
+                title_contact: "04_КАНАЛ_СВЯЗИ", btn_send: "ОТПРАВИТЬ ПАКЕТ", btn_sending: "ОТПРАВКА...", btn_success: "УСПЕШНО", btn_error: "ОШИБКА", ph_name: "ВАШЕ ИМЯ //", ph_email: "EMAIL //", ph_msg: "ВАШЕ СООБЩЕНИЕ //", loc: "Локация: Павлодар, Казахстан", p1_desc: "AI Mentor система для анализа кода в реальном времени."
             },
             en: {
                 nav_home: "// HOME", nav_skills: "// SKILLS", nav_edu: "// EDUCATION", nav_projects: "// PROJECTS", nav_contacts: "// CONTACT",
@@ -367,7 +388,7 @@
                 btn_projects: "PROJECTS", btn_contact: "CONTACT ME", title_skills: "01_TECH_STACK", title_projects: "03_PROJECT_ARCHIVE",
                 edu_now: "2024 — PRESENT", edu_uni: "Toraighyrov University", edu_uni_desc: "Computer Science // Bachelor's Degree",
                 edu_coll: "Pavlodar IT College", edu_coll_desc: "Software Engineering // Diploma with Honors",
-                title_contact: "04_COMM_CHANNEL", btn_send: "SEND PACKAGE", ph_name: "YOUR NAME //", ph_email: "EMAIL //", ph_msg: "YOUR MESSAGE //", loc: "Location: Pavlodar, Kazakhstan", p1_desc: "AI Mentor system for real-time code analysis."
+                title_contact: "04_COMM_CHANNEL", btn_send: "SEND PACKAGE", btn_sending: "SENDING...", btn_success: "SUCCESS", btn_error: "ERROR", ph_name: "YOUR NAME //", ph_email: "EMAIL //", ph_msg: "YOUR MESSAGE //", loc: "Location: Pavlodar, Kazakhstan", p1_desc: "AI Mentor system for real-time code analysis."
             },
             kz: {
                 nav_home: "// БАСТЫ", nav_skills: "// ДАҒДЫЛАР", nav_edu: "// ОҚУ", nav_projects: "// ЖОБАЛАР", nav_contacts: "// БАЙЛАНЫС",
@@ -375,7 +396,7 @@
                 btn_projects: "ЖОБАЛАР", btn_contact: "БАЙЛАНЫСУ", title_skills: "01_ТЕХНИКАЛЫҚ_СТЕК", title_projects: "03_ЖОБАЛАР_АРХИВІ",
                 edu_now: "2024 — ҚАЗІРГІ УАҚЫТ", edu_uni: "Торайғыров Университеті", edu_uni_desc: "Computer Science // Бакалавриат",
                 edu_coll: "Павлодар IT Колледжі", edu_coll_desc: "Бағдарламалық қамтамасыз ету // Үздік диплом",
-                title_contact: "04_БАЙЛАНЫС_АРНАСЫ", btn_send: "ПАКЕТТІ ЖІБЕРУ", ph_name: "АТЫҢЫЗ //", ph_email: "EMAIL //", ph_msg: "ХАБАРЛАМАҢЫЗ //", loc: "Орналасуы: Павлодар, Қазақстан", p1_desc: "Нақты уақыттағы кодты талдауға арналған AI Mentor жүйесі."
+                title_contact: "04_БАЙЛАНЫС_АРНАСЫ", btn_send: "ПАКЕТТІ ЖІБЕРУ", btn_sending: "ЖІБЕРІЛУДЕ...", btn_success: "СӘТТІ", btn_error: "ҚАТЕ", ph_name: "АТЫҢЫЗ //", ph_email: "EMAIL //", ph_msg: "ХАБАРЛАМАҢЫЗ //", loc: "Орналасуы: Павлодар, Қазақстан", p1_desc: "Нақты уақыттағы кодты талдауға арналған AI Mentor жүйесі."
             },
             jp: {
                 nav_home: "// ホーム", nav_skills: "// スキル", nav_edu: "// 教育", nav_projects: "// プロジェクト", nav_contacts: "// 連絡先",
@@ -383,15 +404,15 @@
                 btn_projects: "プロジェクト", btn_contact: "お問い合わせ", title_skills: "01_技術スタック", title_projects: "03_アーカイブ",
                 edu_now: "2024年 — 現在", edu_uni: "トライフリョフ大学", edu_uni_desc: "コンピュータサイエンス // 学士号",
                 edu_coll: "パブロダルITカレッジ", edu_coll_desc: "ソフトウェア工学 // 優秀卒業証書",
-                title_contact: "04_通信チャネル", btn_send: "メッセージ送信", ph_name: "名前 //", ph_email: "メール //", ph_msg: "メッセージ //", loc: "場所：パブロダル、カザフスタン", p1_desc: "リアルタイムコード分析のためのAIメンターシステム。"
+                title_contact: "04_通信チャネル", btn_send: "メッセージ送信", btn_sending: "送信中...", btn_success: "成功", btn_error: "エラー", ph_name: "名前 //", ph_email: "メール //", ph_msg: "メッセージ //", loc: "場所：パブロダル、カザフスタン", p1_desc: "リアルタイムコード分析のためのAIメンターシステム。"
             },
             ch: {
                 nav_home: "// 首页", nav_skills: "// 技能", nav_edu: "// 教育", nav_projects: "// 项目", nav_contacts: "// 联系",
-                status: "[ 状态: 在线 ]", hero_desc: "全栈开发人员。专注于移动开发 (Flutter) 和构建现代 Web 界面。",
+                status: "[ 状态: 在线 ]", hero_desc: "全栈开发人员。专注于移动开发 (Flutter) 和构建 modern Web 界面。",
                 btn_projects: "项目", btn_contact: "联系我", title_skills: "01_技术栈", title_projects: "03_项目归档",
                 edu_now: "2024年 — 至今", edu_uni: "托莱格罗夫大学", edu_uni_desc: "计算机科学 // 学士学位",
                 edu_coll: "巴甫洛达尔IT学院", edu_coll_desc: "软件工程 // 荣誉文凭",
-                title_contact: "04_通信频道", btn_send: "发送数据包", ph_name: "您的姓名 //", ph_email: "电子邮件 //", ph_msg: "您的留言 //", loc: "地点：哈萨克斯坦，巴甫洛达尔", p1_desc: "用于实时代码分析的 AI 导师系统。"
+                title_contact: "04_通信频道", btn_send: "发送数据包", btn_sending: "发送中...", btn_success: "成功", btn_error: "错误", ph_name: "您的姓名 //", ph_email: "电子邮件 //", ph_msg: "您的留言 //", loc: "地点：哈萨克斯坦，巴甫洛达尔", p1_desc: "用于实时代码 analysis 的 AI 导师系统。"
             }
         };
 
@@ -486,6 +507,42 @@
         }, observerOptions);
 
         sections.forEach(section => observer.observe(section));
+
+        // AJAX Form Submission with UX feedback
+        const contactForm = document.querySelector('form[action^="https://formspree.io"]');
+        if (contactForm) {
+            contactForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const form = e.target;
+                const btn = form.querySelector('button[type="submit"]');
+
+                // Feedback: Sending
+                btn.disabled = true;
+                btn.textContent = translations[currentLang].btn_sending;
+
+                try {
+                    const response = await fetch(form.action, {
+                        method: 'POST',
+                        body: new FormData(form),
+                        headers: { 'Accept': 'application/json' }
+                    });
+
+                    if (response.ok) {
+                        btn.textContent = translations[currentLang].btn_success;
+                        form.reset();
+                    } else {
+                        btn.textContent = translations[currentLang].btn_error;
+                    }
+                } catch (error) {
+                    btn.textContent = translations[currentLang].btn_error;
+                } finally {
+                    setTimeout(() => {
+                        btn.disabled = false;
+                        btn.textContent = translations[currentLang].btn_send;
+                    }, 3000);
+                }
+            });
+        }
     </script>
 </body>
 </html>
