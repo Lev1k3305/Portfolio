@@ -17,3 +17,7 @@
 ## 2026-06-10 - O(1) DOM Updates and Layout Stability
 **Learning:** Repetitive DOM lookups and `innerText` updates in hot paths (like language switching) cause significant layout thrashing. Caching elements and using `textContent` can yield a ~30x performance boost in script execution. Additionally, optimizing `IntersectionObserver` callbacks to avoid full nav-link iterations by tracking the active ID ensures smooth scrolling even on low-end devices.
 **Action:** Use `Map` for O(1) DOM element lookups in event-driven logic and prefer `textContent` for non-HTML updates.
+
+## 2026-06-11 - Eliminating Massive Library Dependencies for Small Wins
+**Learning:** External icon libraries like Font Awesome are convenient but often excessive for small projects. Loading a ~70KB CSS file and multiple font assets just for 4 icons is a major performance bottleneck in terms of both payload size and HTTP requests.
+**Action:** Replace external icon libraries with optimized inline SVGs. Use `fill: currentColor` on SVGs to maintain styling flexibility through CSS `color` properties.
