@@ -212,7 +212,7 @@
 
         /* Projects */
         .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
-        .project-card { background: var(--surface); border: 1px solid var(--border); transition: 0.3s; }
+        .project-card { background: var(--surface); border: 1px solid var(--border); transition: 0.3s; color: inherit; text-decoration: none; }
         .project-card:hover {
             border-color: var(--pink);
             transform: translateY(-5px) scale(1.02);
@@ -328,11 +328,6 @@
         <section id="education">
             <h2 class="section-title" data-key="nav_edu">02_ОБУЧЕНИЕ</h2>
             <div class="edu-item">
-                <span class="edu-date" data-key="edu_now">2024 — НАСТОЯЩЕЕ ВРЕМЯ</span>
-                <h3 data-key="edu_uni">Торайгыров Университет</h3>
-                <p data-key="edu_uni_desc">Computer Science // Бакалавриат</p>
-            </div>
-            <div class="edu-item">
                 <span class="edu-date">2021 — 2024</span>
                 <h3 data-key="edu_coll">Павлодарский Колледж IT</h3>
                 <p data-key="edu_coll_desc">Программное обеспечение // Диплом с отличием</p>
@@ -342,18 +337,29 @@
         <section id="projects">
             <h2 class="section-title" data-key="title_projects">03_АРХИВ_ПРОЕКТОВ</h2>
             <div class="projects-grid">
-                <article class="project-card" style="padding:20px">
-                    <h3>CodeFlow AI</h3>
-                    <p data-key="p1_desc" style="font-size:0.8rem; color:var(--text-dim); margin:10px 0">AI Mentor для анализа кода в реальном времени.</p>
-                    <div style="margin-top:auto"><span class="skill-tag">Flutter</span><span class="skill-tag">AI</span></div>
-                </article>
+                <a href="" class="project-card" style="padding:20px; display:flex; flex-direction:column;">
+                    <h3 data-key="p1_title">W.R.E.N.C.H.</h3>
+                    <p data-key="p1_desc" style="font-size:0.8rem; color:var(--text-dim); margin:10px 0">Персональный ИИ-ассистент с модульной архитектурой и синтезом речи.</p>
+                    <div style="margin-top:auto"><span class="skill-tag">Python</span><span class="skill-tag">AI</span></div>
+                </a>
+                <a href="" class="project-card" style="padding:20px; display:flex; flex-direction:column;">
+                    <h3 data-key="p2_title">CourseFlow</h3>
+                    <p data-key="p2_desc" style="font-size:0.8rem; color:var(--text-dim); margin:10px 0">Образовательная платформа с генерацией учебных планов (UI/UX, Full-stack).</p>
+                    <div style="margin-top:auto"><span class="skill-tag">Full-stack</span><span class="skill-tag">Flask</span></div>
+                </a>
+                <a href="" class="project-card" style="padding:20px; display:flex; flex-direction:column;">
+                    <h3 data-key="p3_title">Bunker_OS / AgentFlow</h3>
+                    <p data-key="p3_desc" style="font-size:0.8rem; color:var(--text-dim); margin:10px 0">Концепт интерфейса для управления мультиагентными ИИ-системами.</p>
+                    <div style="margin-top:auto"><span class="skill-tag">UI/UX</span><span class="skill-tag">AI</span></div>
+                </a>
             </div>
         </section>
 
         <section id="contacts">
             <h2 class="section-title" data-key="title_contact">04_КАНАЛ_СВЯЗИ</h2>
             <div class="contact-layout">
-                <form action="https://formspree.io/f/zakisev775@gmail.com" method="POST">
+                <form action="https://api.web3forms.com/submit" method="POST" id="cyber-form">
+                    <input type="hidden" name="access_key" value="62501b13-39e7-4dc3-90ef-718fcfadd897">
                     <input type="text" name="name" data-placeholder="ph_name" placeholder="ВАШЕ ИМЯ //" aria-label="Your Name" required>
                     <input type="email" name="email" data-placeholder="ph_email" placeholder="EMAIL //" aria-label="Email Address" required>
                     <textarea name="message" rows="5" data-placeholder="ph_msg" placeholder="ВАШЕ СООБЩЕНИЕ //" aria-label="Your Message" required></textarea>
@@ -378,41 +384,51 @@
                 nav_home: "// ГЛАВНАЯ", nav_skills: "// НАВЫКИ", nav_edu: "// ОБУЧЕНИЕ", nav_projects: "// ПРОЕКТЫ", nav_contacts: "// СВЯЗЬ",
                 status: "[ СТАТУС: В СЕТИ ]", hero_desc: "Full-stack разработчик. Специализируюсь на мобильной разработке (Flutter) и создании современных веб-интерфейсов.",
                 btn_projects: "ПРОЕКТЫ", btn_contact: "СВЯЗАТЬСЯ", title_skills: "01_ТЕХНИЧЕСКИЙ_СТЕК", title_projects: "03_АРХИВ_ПРОЕКТОВ",
-                edu_now: "2024 — НАСТОЯЩЕЕ ВРЕМЯ", edu_uni: "Торайгыров Университет", edu_uni_desc: "Computer Science // Бакалавриат",
                 edu_coll: "Павлодарский Колледж IT", edu_coll_desc: "Программное обеспечение // Диплом с отличием",
-                title_contact: "04_КАНАЛ_СВЯЗИ", btn_send: "ОТПРАВИТЬ ПАКЕТ", btn_sending: "ОТПРАВКА...", btn_success: "УСПЕШНО", btn_error: "ОШИБКА", ph_name: "ВАШЕ ИМЯ //", ph_email: "EMAIL //", ph_msg: "ВАШЕ СООБЩЕНИЕ //", loc: "Локация: Павлодар, Казахстан", p1_desc: "AI Mentor система для анализа кода в реальном времени."
+                title_contact: "04_КАНАЛ_СВЯЗИ", btn_send: "ОТПРАВИТЬ ПАКЕТ", btn_sending: "[ СИНХРОНИЗАЦИЯ... ]", btn_success: "[ ПАКЕТ УСПЕШНО ОТПРАВЛЕН ]", btn_error: "[ СБОЙ ПЕРЕДАЧИ ДАННЫХ ]", ph_name: "ВАШЕ ИМЯ //", ph_email: "EMAIL //", ph_msg: "ВАШЕ СООБЩЕНИЕ //", loc: "Локация: Павлодар, Казахстан",
+                p1_title: "W.R.E.N.C.H.", p1_desc: "Персональный ИИ-ассистент с модульной архитектурой и синтезом речи.",
+                p2_title: "CourseFlow", p2_desc: "Образовательная платформа с генерацией учебных планов (UI/UX, Full-stack).",
+                p3_title: "Bunker_OS / AgentFlow", p3_desc: "Концепт интерфейса для управления мультиагентными ИИ-системами."
             },
             en: {
                 nav_home: "// HOME", nav_skills: "// SKILLS", nav_edu: "// EDUCATION", nav_projects: "// PROJECTS", nav_contacts: "// CONTACT",
                 status: "[ STATUS: ONLINE ]", hero_desc: "Full-stack developer. Specializing in mobile development (Flutter) and modern web interfaces.",
                 btn_projects: "PROJECTS", btn_contact: "CONTACT ME", title_skills: "01_TECH_STACK", title_projects: "03_PROJECT_ARCHIVE",
-                edu_now: "2024 — PRESENT", edu_uni: "Toraighyrov University", edu_uni_desc: "Computer Science // Bachelor's Degree",
                 edu_coll: "Pavlodar IT College", edu_coll_desc: "Software Engineering // Diploma with Honors",
-                title_contact: "04_COMM_CHANNEL", btn_send: "SEND PACKAGE", btn_sending: "SENDING...", btn_success: "SUCCESS", btn_error: "ERROR", ph_name: "YOUR NAME //", ph_email: "EMAIL //", ph_msg: "YOUR MESSAGE //", loc: "Location: Pavlodar, Kazakhstan", p1_desc: "AI Mentor system for real-time code analysis."
+                title_contact: "04_COMM_CHANNEL", btn_send: "SEND PACKAGE", btn_sending: "[ SYNCING... ]", btn_success: "[ PACKAGE SENT SUCCESSFULLY ]", btn_error: "[ DATA TRANSMISSION FAILURE ]", ph_name: "YOUR NAME //", ph_email: "EMAIL //", ph_msg: "YOUR MESSAGE //", loc: "Location: Pavlodar, Kazakhstan",
+                p1_title: "W.R.E.N.C.H.", p1_desc: "Personal AI assistant with modular architecture and speech synthesis.",
+                p2_title: "CourseFlow", p2_desc: "Educational platform with curriculum generation (UI/UX, Full-stack).",
+                p3_title: "Bunker_OS / AgentFlow", p3_desc: "Interface concept for managing multi-agent AI systems."
             },
             kz: {
                 nav_home: "// БАСТЫ", nav_skills: "// ДАҒДЫЛАР", nav_edu: "// ОҚУ", nav_projects: "// ЖОБАЛАР", nav_contacts: "// БАЙЛАНЫС",
                 status: "[ МӘРТЕБЕСІ: ЖЕЛІДЕ ]", hero_desc: "Full-stack әзірлеуші. Мобильді әзірлеу (Flutter) және заманауи веб-интерфейстерді жасауға маманданғанмын.",
                 btn_projects: "ЖОБАЛАР", btn_contact: "БАЙЛАНЫСУ", title_skills: "01_ТЕХНИКАЛЫҚ_СТЕК", title_projects: "03_ЖОБАЛАР_АРХИВІ",
-                edu_now: "2024 — ҚАЗІРГІ УАҚЫТ", edu_uni: "Торайғыров Университеті", edu_uni_desc: "Computer Science // Бакалавриат",
                 edu_coll: "Павлодар IT Колледжі", edu_coll_desc: "Бағдарламалық қамтамасыз ету // Үздік диплом",
-                title_contact: "04_БАЙЛАНЫС_АРНАСЫ", btn_send: "ПАКЕТТІ ЖІБЕРУ", btn_sending: "ЖІБЕРІЛУДЕ...", btn_success: "СӘТТІ", btn_error: "ҚАТЕ", ph_name: "АТЫҢЫЗ //", ph_email: "EMAIL //", ph_msg: "ХАБАРЛАМАҢЫЗ //", loc: "Орналасуы: Павлодар, Қазақстан", p1_desc: "Нақты уақыттағы кодты талдауға арналған AI Mentor жүйесі."
+                title_contact: "04_БАЙЛАНЫС_АРНАСЫ", btn_send: "ПАКЕТТІ ЖІБЕРУ", btn_sending: "[ СИНХРОНДАУ... ]", btn_success: "[ ПАКЕТ СӘТТІ ЖІБЕРІЛДІ ]", btn_error: "[ ДЕРЕКТЕРДІ БЕРУ ҚАТЕСІ ]", ph_name: "АТЫҢЫЗ //", ph_email: "EMAIL //", ph_msg: "ХАБАРЛАМАҢЫЗ //", loc: "Орналасуы: Павлодар, Қазақстан",
+                p1_title: "W.R.E.N.C.H.", p1_desc: "Модульдік архитектурасы және сөйлеу синтезі бар жеке AI ассистенті.",
+                p2_title: "CourseFlow", p2_desc: "Оқу жоспарларын генерациялайтын білім беру платформасы (UI/UX, Full-stack).",
+                p3_title: "Bunker_OS / AgentFlow", p3_desc: "Мультиагенттік AI жүйелерін басқаруға арналған интерфейс концепциясы."
             },
             jp: {
                 nav_home: "// ホーム", nav_skills: "// スキル", nav_edu: "// 教育", nav_projects: "// プロジェクト", nav_contacts: "// 連絡先",
                 status: "[ ステータス: オンライン ]", hero_desc: "フルスタック開発者。モバイル開発（Flutter）とモダンなWebインターフェースの作成を専門としています。",
                 btn_projects: "プロジェクト", btn_contact: "お問い合わせ", title_skills: "01_技術スタック", title_projects: "03_アーカイブ",
-                edu_now: "2024年 — 現在", edu_uni: "トライフリョフ大学", edu_uni_desc: "コンピュータサイエンス // 学士号",
                 edu_coll: "パブロダルITカレッジ", edu_coll_desc: "ソフトウェア工学 // 優秀卒業証書",
-                title_contact: "04_通信チャネル", btn_send: "メッセージ送信", btn_sending: "送信中...", btn_success: "成功", btn_error: "エラー", ph_name: "名前 //", ph_email: "メール //", ph_msg: "メッセージ //", loc: "場所：パブロダル、カザフスタン", p1_desc: "リアルタイムコード分析のためのAIメンターシステム。"
+                title_contact: "04_通信チャネル", btn_send: "メッセージ送信", btn_sending: "[ 同期中... ]", btn_success: "[ 送信成功 ]", btn_error: "[ 通信エラー ]", ph_name: "名前 //", ph_email: "メール //", ph_msg: "メッセージ //", loc: "場所：パブロダル、カザフスタン",
+                p1_title: "W.R.E.N.C.H.", p1_desc: "モジュール式アーキテクチャと音声合成を備えたパーソナルAIアシスタント。",
+                p2_title: "CourseFlow", p2_desc: "カリキュラム生成機能を備えた教育プラットフォーム（UI/UX、フルスタック）。",
+                p3_title: "Bunker_OS / AgentFlow", p3_desc: "マルチエージェントAIシステムを管理するためのインターフェースコンセプト。"
             },
             ch: {
                 nav_home: "// 首页", nav_skills: "// 技能", nav_edu: "// 教育", nav_projects: "// 项目", nav_contacts: "// 联系",
                 status: "[ 状态: 在线 ]", hero_desc: "全栈开发人员。专注于移动开发 (Flutter) 和构建 modern Web 界面。",
                 btn_projects: "项目", btn_contact: "联系我", title_skills: "01_技术栈", title_projects: "03_项目归档",
-                edu_now: "2024年 — 至今", edu_uni: "托莱格罗夫大学", edu_uni_desc: "计算机科学 // 学士学位",
                 edu_coll: "巴甫洛达尔IT学院", edu_coll_desc: "软件工程 // 荣誉文凭",
-                title_contact: "04_通信频道", btn_send: "发送数据包", btn_sending: "发送中...", btn_success: "成功", btn_error: "错误", ph_name: "您的姓名 //", ph_email: "电子邮件 //", ph_msg: "您的留言 //", loc: "地点：哈萨克斯坦，巴甫洛达尔", p1_desc: "用于实时代码 analysis 的 AI 导师系统。"
+                title_contact: "04_通信频道", btn_send: "发送数据包", btn_sending: "[ 同步中... ]", btn_success: "[ 数据包发送成功 ]", btn_error: "[ 数据传输失败 ]", ph_name: "您的姓名 //", ph_email: "电子邮件 //", ph_msg: "您的留言 //", loc: "地点：哈萨克斯坦，巴甫洛达尔",
+                p1_title: "W.R.E.N.C.H.", p1_desc: "具有模块化架构和语音合成功能的个人人工智能助手。",
+                p2_title: "CourseFlow", p2_desc: "具有课程生成功能的教育平台 (UI/UX, Full-stack)。",
+                p3_title: "Bunker_OS / AgentFlow", p3_desc: "用于管理多智能体人工智能系统的界面概念。"
             }
         };
 
@@ -509,7 +525,7 @@
         sections.forEach(section => observer.observe(section));
 
         // AJAX Form Submission with UX feedback
-        const contactForm = document.querySelector('form[action^="https://formspree.io"]');
+        const contactForm = document.getElementById('cyber-form');
         if (contactForm) {
             contactForm.addEventListener('submit', async (e) => {
                 e.preventDefault();
