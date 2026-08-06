@@ -1,0 +1,4 @@
+## 2026-06-15 - [Form Spam and Resource Abuse Prevention]
+**Vulnerability:** Contact forms on static sites are prone to automated spam bot submissions, and lack of input length limits can be exploited to send arbitrarily large payloads (DoS/resource exhaustion on form handlers or API endpoints).
+**Learning:** For serverless or external form providers (like Web3Forms), standard secret protection isn't sufficient. Implementing invisible honeypots (such as the checkbox element with `name="botcheck"` and CSS hiding) traps standard spammers without altering the user experience. Adding HTML `maxlength` attributes restricts payload sizing directly on the frontend before external transmission.
+**Prevention:** Always integrate standard client-side honeypots (matching the handler's naming requirements) and strict input length validation to prevent malicious exploitation and spam overload.

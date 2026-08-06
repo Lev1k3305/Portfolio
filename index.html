@@ -370,9 +370,12 @@
             <div class="contact-layout">
                 <form action="https://api.web3forms.com/submit" method="POST" id="cyber-form">
                     <input type="hidden" name="access_key" value="62501b13-39e7-4dc3-90ef-718fcfadd897">
-                    <input type="text" name="name" data-placeholder="ph_name" placeholder="ВАШЕ ИМЯ //" aria-label="Your Name" required>
-                    <input type="email" name="email" data-placeholder="ph_email" placeholder="EMAIL //" aria-label="Email Address" required>
-                    <textarea name="message" rows="5" data-placeholder="ph_msg" placeholder="ВАШЕ СООБЩЕНИЕ //" aria-label="Your Message" required></textarea>
+                    <!-- Honeypot spam protection element (invisible to human users, traps spam bots) -->
+                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;" tabindex="-1" autocomplete="off">
+                    <!-- Input fields with strict length validation to prevent malicious payload sizes and buffer/resource exhaustion -->
+                    <input type="text" name="name" data-placeholder="ph_name" placeholder="ВАШЕ ИМЯ //" aria-label="Your Name" maxlength="100" required>
+                    <input type="email" name="email" data-placeholder="ph_email" placeholder="EMAIL //" aria-label="Email Address" maxlength="150" required>
+                    <textarea name="message" rows="5" data-placeholder="ph_msg" placeholder="ВАШЕ СООБЩЕНИЕ //" aria-label="Your Message" maxlength="2000" required></textarea>
                     <button type="submit" class="btn btn-pink" style="width: 100%;" data-key="btn_send">ОТПРАВИТЬ ПАКЕТ</button>
                 </form>
                 <div style="border-left: 1px solid var(--border); padding-left: 40px;">
