@@ -21,3 +21,7 @@
 ## 2026-06-11 - Eliminating Massive Library Dependencies for Small Wins
 **Learning:** External icon libraries like Font Awesome are convenient but often excessive for small projects. Loading a ~70KB CSS file and multiple font assets just for 4 icons is a major performance bottleneck in terms of both payload size and HTTP requests.
 **Action:** Replace external icon libraries with optimized inline SVGs. Use `fill: currentColor` on SVGs to maintain styling flexibility through CSS `color` properties.
+
+## 2026-08-07 - Non-Blocking CSS for External Web Fonts
+**Learning:** Standard external Google Font stylesheet link tags block parsing of the HTML body, causing layout rendering delays and increased FCP/LCP. Loading font stylesheets asynchronously via media="print" on loaded-to-all triggers non-blocking fetch while fallback <noscript> tags protect users with disabled JavaScript.
+**Action:** Always load non-critical or external third-party CSS files asynchronously using the media trick with a fallback noscript tag to optimize the critical rendering path.
