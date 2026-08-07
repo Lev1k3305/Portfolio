@@ -1,0 +1,4 @@
+## 2026-06-11 - Anti-Spam Defense in Depth: Honeypot Protection and Strict Length Limits
+**Vulnerability:** Contact forms on static portfolio websites are highly susceptible to automated spambots and Denial of Service (DoS) / resource abuse attacks via oversized text inputs.
+**Learning:** In public static sites utilizing serverless email handlers (such as Web3Forms), standard HTML forms are exposed to bots scanning for inputs. Implementing a hidden checkbox `botcheck` Honeypot filters automated submissions without annoying human users with CAPTCHAs. Furthermore, imposing strict `maxlength` limits on inputs prevents memory/processing resource abuse on both client and API endpoints.
+**Prevention:** Incorporate a hidden `botcheck` input to act as a spam honeypot trap, alongside a real-time localized character counter and strict `maxlength` constraints on text/textarea fields for accessibility, UX alignment, and security.

@@ -370,9 +370,15 @@
             <div class="contact-layout">
                 <form action="https://api.web3forms.com/submit" method="POST" id="cyber-form">
                     <input type="hidden" name="access_key" value="62501b13-39e7-4dc3-90ef-718fcfadd897">
-                    <input type="text" name="name" data-placeholder="ph_name" placeholder="ВАШЕ ИМЯ //" aria-label="Your Name" required>
-                    <input type="email" name="email" data-placeholder="ph_email" placeholder="EMAIL //" aria-label="Email Address" required>
-                    <textarea name="message" rows="5" data-placeholder="ph_msg" placeholder="ВАШЕ СООБЩЕНИЕ //" aria-label="Your Message" required></textarea>
+                    <!-- Security: Honeypot spam protection for Web3Forms -->
+                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;" tabindex="-1" autocomplete="off">
+                    <input type="text" name="name" data-placeholder="ph_name" placeholder="ВАШЕ ИМЯ //" aria-label="Your Name" maxlength="100" required>
+                    <input type="email" name="email" data-placeholder="ph_email" placeholder="EMAIL //" aria-label="Email Address" maxlength="100" required>
+                    <div style="position: relative; margin-bottom: 10px;">
+                        <textarea name="message" rows="5" data-placeholder="ph_msg" placeholder="ВАШЕ СООБЩЕНИЕ //" aria-label="Your Message" maxlength="500" required style="margin-bottom: 0;"></textarea>
+                        <!-- Real-time byte/character counter -->
+                        <div id="char-counter" style="font-size: 0.65rem; color: var(--text-dim); text-align: right; margin-top: 5px;" aria-live="polite"></div>
+                    </div>
                     <button type="submit" class="btn btn-pink" style="width: 100%;" data-key="btn_send">ОТПРАВИТЬ ПАКЕТ</button>
                 </form>
                 <div style="border-left: 1px solid var(--border); padding-left: 40px;">
@@ -398,7 +404,8 @@
                 title_contact: "04_КАНАЛ_СВЯЗИ", btn_send: "ОТПРАВИТЬ ПАКЕТ", btn_sending: "[ СИНХРОНИЗАЦИЯ... ]", btn_success: "[ ПАКЕТ УСПЕШНО ОТПРАВЛЕН ]", btn_error: "[ СБОЙ ПЕРЕДАЧИ ДАННЫХ ]", ph_name: "ВАШЕ ИМЯ //", ph_email: "EMAIL //", ph_msg: "ВАШЕ СООБЩЕНИЕ //", loc: "Локация: Павлодар, Казахстан",
                 p1_title: "W.R.E.N.C.H.", p1_desc: "Персональный ИИ-ассистент с модульной архитектурой и синтезом речи.",
                 p2_title: "CourseFlow", p2_desc: "Образовательная платформа с генерацией учебных планов (UI/UX, Full-stack).",
-                p3_title: "Bunker_OS / AgentFlow", p3_desc: "Концепт интерфейса для управления мультиагентными ИИ-системами."
+                p3_title: "Bunker_OS / AgentFlow", p3_desc: "Концепт интерфейса для управления мультиагентными ИИ-системами.",
+                counter_label: "[ ДАННЫЕ: {x} / 500 БАЙТ ]"
             },
             en: {
                 nav_home: "// HOME", nav_skills: "// SKILLS", nav_edu: "// EDUCATION", nav_projects: "// PROJECTS", nav_contacts: "// CONTACT",
@@ -408,7 +415,8 @@
                 title_contact: "04_COMM_CHANNEL", btn_send: "SEND PACKAGE", btn_sending: "[ SYNCING... ]", btn_success: "[ PACKAGE SENT SUCCESSFULLY ]", btn_error: "[ DATA TRANSMISSION FAILURE ]", ph_name: "YOUR NAME //", ph_email: "EMAIL //", ph_msg: "YOUR MESSAGE //", loc: "Location: Pavlodar, Kazakhstan",
                 p1_title: "W.R.E.N.C.H.", p1_desc: "Personal AI assistant with modular architecture and speech synthesis.",
                 p2_title: "CourseFlow", p2_desc: "Educational platform with curriculum generation (UI/UX, Full-stack).",
-                p3_title: "Bunker_OS / AgentFlow", p3_desc: "Interface concept for managing multi-agent AI systems."
+                p3_title: "Bunker_OS / AgentFlow", p3_desc: "Interface concept for managing multi-agent AI systems.",
+                counter_label: "[ DATA: {x} / 500 BYTES ]"
             },
             kz: {
                 nav_home: "// БАСТЫ", nav_skills: "// ДАҒДЫЛАР", nav_edu: "// ОҚУ", nav_projects: "// ЖОБАЛАР", nav_contacts: "// БАЙЛАНЫС",
@@ -418,7 +426,8 @@
                 title_contact: "04_БАЙЛАНЫС_АРНАСЫ", btn_send: "ПАКЕТТІ ЖІБЕРУ", btn_sending: "[ СИНХРОНДАУ... ]", btn_success: "[ ПАКЕТ СӘТТІ ЖІБЕРІЛДІ ]", btn_error: "[ ДЕРЕКТЕРДІ БЕРУ ҚАТЕСІ ]", ph_name: "АТЫҢЫЗ //", ph_email: "EMAIL //", ph_msg: "ХАБАРЛАМАҢЫЗ //", loc: "Орналасуы: Павлодар, Қазақстан",
                 p1_title: "W.R.E.N.C.H.", p1_desc: "Модульдік архитектурасы және сөйлеу синтезі бар жеке AI ассистенті.",
                 p2_title: "CourseFlow", p2_desc: "Оқу жоспарларын генерациялайтын білім беру платформасы (UI/UX, Full-stack).",
-                p3_title: "Bunker_OS / AgentFlow", p3_desc: "Мультиагенттік AI жүйелерін басқаруға арналған интерфейс концепциясы."
+                p3_title: "Bunker_OS / AgentFlow", p3_desc: "Мультиагенттік AI жүйелерін басқаруға арналған интерфейс концепциясы.",
+                counter_label: "[ ДЕРЕКТЕР: {x} / 500 БАЙТ ]"
             },
             jp: {
                 nav_home: "// ホーム", nav_skills: "// スキル", nav_edu: "// 教育", nav_projects: "// プロジェクト", nav_contacts: "// 連絡先",
@@ -428,7 +437,8 @@
                 title_contact: "04_通信チャネル", btn_send: "メッセージ送信", btn_sending: "[ 同期中... ]", btn_success: "[ 送信成功 ]", btn_error: "[ 通信エラー ]", ph_name: "名前 //", ph_email: "メール //", ph_msg: "メッセージ //", loc: "場所：パブロダル、カザフスタン",
                 p1_title: "W.R.E.N.C.H.", p1_desc: "モジュール式アーキテクチャと音声合成を備えたパーソナルAIアシスタント。",
                 p2_title: "CourseFlow", p2_desc: "カリキュラム生成機能を備えた教育プラットフォーム（UI/UX、フルスタック）。",
-                p3_title: "Bunker_OS / AgentFlow", p3_desc: "マルチエージェントAIシステムを管理するためのインターフェースコンセプト。"
+                p3_title: "Bunker_OS / AgentFlow", p3_desc: "マルチエージェントAIシステムを管理するためのインターフェースコンセプト。",
+                counter_label: "[ データ: {x} / 500 バイト ]"
             },
             ch: {
                 nav_home: "// 首页", nav_skills: "// 技能", nav_edu: "// 教育", nav_projects: "// 项目", nav_contacts: "// 联系",
@@ -436,9 +446,10 @@
                 btn_projects: "项目", btn_contact: "联系我", title_skills: "01_技术栈", title_projects: "03_项目归档",
                 edu_coll: "巴甫洛达尔IT学院", edu_coll_desc: "软件工程 // 荣誉文凭",
                 title_contact: "04_通信频道", btn_send: "发送数据包", btn_sending: "[ 同步中... ]", btn_success: "[ 数据包发送成功 ]", btn_error: "[ 数据传输失败 ]", ph_name: "您的姓名 //", ph_email: "电子邮件 //", ph_msg: "您的留言 //", loc: "地点：哈萨克斯坦，巴甫洛达尔",
-                p1_title: "W.R.E.N.C.H.", p1_desc: "具有模块化架构和语音合成功能的个人人工智能助手。",
+                p1_title: "W.R.E.N.C.H.", p1_desc: "具有模块化架构 and 语音合成功能的个人人工智能助手。",
                 p2_title: "CourseFlow", p2_desc: "具有课程生成功能的教育平台 (UI/UX, Full-stack)。",
-                p3_title: "Bunker_OS / AgentFlow", p3_desc: "用于管理多智能体人工智能系统的界面概念。"
+                p3_title: "Bunker_OS / AgentFlow", p3_desc: "用于管理多智能体人工智能系统的界面概念。",
+                counter_label: "[ 数据: {x} / 500 字节 ]"
             }
         };
 
@@ -487,6 +498,9 @@
                 const translation = translations[lang][item.key];
                 if (translation) item.el.setAttribute('placeholder', translation);
             });
+
+            // Update character counter localization
+            updateCharCounter();
         }
 
         // BOLT: Optimized Scroll Spy Logic
@@ -534,6 +548,24 @@
 
         sections.forEach(section => observer.observe(section));
 
+        // Localized byte/character counter implementation
+        const messageTextarea = document.querySelector('textarea[name="message"]');
+        const charCounterEl = document.getElementById('char-counter');
+
+        function updateCharCounter() {
+            if (!charCounterEl) return;
+            const length = messageTextarea ? messageTextarea.value.length : 0;
+            const template = translations[currentLang].counter_label || "[ DATA: {x} / 500 BYTES ]";
+            charCounterEl.textContent = template.replace('{x}', length);
+        }
+
+        if (messageTextarea) {
+            messageTextarea.addEventListener('input', updateCharCounter);
+        }
+
+        // Initialize character counter on page load
+        updateCharCounter();
+
         // AJAX Form Submission with UX feedback
         const contactForm = document.getElementById('cyber-form');
         if (contactForm) {
@@ -556,6 +588,7 @@
                     if (response.ok) {
                         btn.textContent = translations[currentLang].btn_success;
                         form.reset();
+                        updateCharCounter(); // Reset counter display on success
                     } else {
                         btn.textContent = translations[currentLang].btn_error;
                     }
