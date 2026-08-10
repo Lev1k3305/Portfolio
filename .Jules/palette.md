@@ -5,3 +5,7 @@
 ## 2026-06-11 - Visual Cues for "System Status"
 **Learning:** In a terminal/cyberpunk themed UI, text-based status indicators (e.g., "[ STATUS: ONLINE ]") are more effective and "delightful" when accompanied by a pulsing visual element (like a green neon dot). This provides immediate pre-attentive confirmation of status.
 **Action:** Pair critical status text with a simple CSS-animated pulsing dot to enhance the "living system" aesthetic.
+
+## 2026-08-10 - Synchronized Real-time Multilingual Form Limit Counters
+**Learning:** Adding input bounds (like maxlength="500") on form elements improves security and backend data handling. To maintain high UX/accessibility, pairing this constraint with a real-time character counter featuring `aria-live="polite"` gives screen readers and visual users clear bounds. By synchronizing this counter with the global multi-lingual switcher logic, translations update dynamically alongside the input length without causing template string layout shifts.
+**Action:** Always map localized counter template strings (e.g. `[ ДАННЫЕ: {count} / 500 БАЙТ ]`) in the translations object, and trigger updates on input events and language switching actions.
