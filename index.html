@@ -7,7 +7,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" href="scr/assets/image.gif" as="image" fetchpriority="high">
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <!-- BOLT: Load the primary font (IBM Plex Mono) asynchronously to prevent it from blocking the critical rendering path.
+         This improves First Contentful Paint (FCP) and Speed Index.
+         The media="print" technique downloads the sheet in the background, and onload switches it to all once loaded. -->
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap" rel="stylesheet">
+    </noscript>
     <style>
         :root {
             --bg: #08080c;
