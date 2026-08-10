@@ -21,3 +21,7 @@
 ## 2026-06-11 - Eliminating Massive Library Dependencies for Small Wins
 **Learning:** External icon libraries like Font Awesome are convenient but often excessive for small projects. Loading a ~70KB CSS file and multiple font assets just for 4 icons is a major performance bottleneck in terms of both payload size and HTTP requests.
 **Action:** Replace external icon libraries with optimized inline SVGs. Use `fill: currentColor` on SVGs to maintain styling flexibility through CSS `color` properties.
+
+## 2026-08-06 - Eliminating Render-Blocking Google Fonts stylesheets
+**Learning:** Standard `<link rel="stylesheet">` tags for web fonts block page rendering while fetching the CSS from the server, causing higher First Contentful Paint times. Loading the primary font asynchronously with `media="print" onload="this.media='all'"` completely unblocks the critical rendering path, using standard browser fallback fonts during the brief fetching phase (with `display=swap`).
+**Action:** Always load critical but non-layout-critical third-party stylesheets using the non-blocking media toggle method with a `<noscript>` fallback.
