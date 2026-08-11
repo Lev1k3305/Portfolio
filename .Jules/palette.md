@@ -5,3 +5,7 @@
 ## 2026-06-11 - Visual Cues for "System Status"
 **Learning:** In a terminal/cyberpunk themed UI, text-based status indicators (e.g., "[ STATUS: ONLINE ]") are more effective and "delightful" when accompanied by a pulsing visual element (like a green neon dot). This provides immediate pre-attentive confirmation of status.
 **Action:** Pair critical status text with a simple CSS-animated pulsing dot to enhance the "living system" aesthetic.
+
+## 2026-08-11 - Localized Real-Time Interactive Length Constraints
+**Learning:** When enforcing `maxlength` attributes on user input areas (like textareas), displaying a live, localized, and ARIA-polite character/byte counter significantly reduces user anxiety. It provides instant visual and non-visual feedback about remaining budget in the user's preferred language, matching standard native-app levels of interaction responsiveness.
+**Action:** Always pair length-restricted inputs with a localized real-time counter equipped with `aria-live="polite"`.
