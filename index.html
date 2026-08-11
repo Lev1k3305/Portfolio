@@ -291,6 +291,1075 @@
             70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(0, 255, 0, 0); }
             100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 255, 0, 0); }
         }
+
+        /* =========================================================
+   COMMERCIAL PRODUCTS
+   ========================================================= */
+
+.commercial-products {
+    position: relative;
+    padding: 120px 40px;
+    overflow: hidden;
+}
+
+
+/* ---------- HEADER ---------- */
+
+.products-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 60px;
+    margin-bottom: 55px;
+}
+
+.section-index {
+    display: block;
+    margin-bottom: 20px;
+    color: var(--accent, #00f0ff);
+    font-family: monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.22em;
+}
+
+.products-heading h2 {
+    margin: 0;
+    font-family: monospace;
+    font-size: clamp(2rem, 5vw, 4rem);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+}
+
+.products-heading h2 span {
+    color: var(--accent, #00f0ff);
+}
+
+.products-intro {
+    max-width: 430px;
+    margin: 0;
+    color: var(--text-dim, #7b8494);
+    font-family: monospace;
+    font-size: 0.9rem;
+    line-height: 1.8;
+}
+
+
+/* ---------- GRID ---------- */
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+}
+
+
+/* ---------- CARD ---------- */
+
+.product-card {
+    position: relative;
+    min-width: 0;
+    overflow: hidden;
+
+    border: 1px solid rgba(0, 240, 255, 0.12);
+    background:
+        linear-gradient(
+            145deg,
+            rgba(10, 15, 24, 0.96),
+            rgba(5, 8, 13, 0.98)
+        );
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.product-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            120deg,
+            transparent 30%,
+            rgba(0, 240, 255, 0.04),
+            transparent 70%
+        );
+
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    pointer-events: none;
+}
+
+.product-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(0, 240, 255, 0.45);
+
+    box-shadow:
+        0 20px 70px rgba(0, 0, 0, 0.55),
+        0 0 30px rgba(0, 240, 255, 0.06);
+}
+
+.product-card:hover::before {
+    opacity: 1;
+}
+
+
+/* ---------- FEATURED ---------- */
+
+.product-featured {
+    grid-column: span 2;
+}
+
+
+/* ---------- TOP ---------- */
+
+.product-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 18px 20px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+
+    font-family: monospace;
+}
+
+.product-id {
+    color: var(--accent, #00f0ff);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+}
+
+.product-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+}
+
+.product-status span {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.status-live {
+    color: #00ff9d;
+}
+
+.status-live span {
+    background: #00ff9d;
+    box-shadow: 0 0 12px #00ff9d;
+}
+
+.status-development {
+    color: #ffb000;
+}
+
+.status-development span {
+    background: #ffb000;
+    box-shadow: 0 0 12px #ffb000;
+}
+
+.status-concept {
+    color: #a66cff;
+}
+
+.status-concept span {
+    background: #a66cff;
+    box-shadow: 0 0 12px #a66cff;
+}
+
+.status-available {
+    color: #00ff9d;
+}
+
+.status-available span {
+    background: #00ff9d;
+    box-shadow: 0 0 12px #00ff9d;
+}
+
+
+/* =========================================================
+   PREVIEWS
+   ========================================================= */
+
+.product-preview {
+    position: relative;
+    height: 310px;
+    overflow: hidden;
+
+    background: #070b11;
+}
+
+
+/* ---------- COURSEFLOW PREVIEW ---------- */
+
+.courseflow-preview {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            rgba(77, 45, 255, 0.25),
+            transparent 55%
+        ),
+        #070910;
+}
+
+.preview-browser {
+    position: relative;
+    z-index: 2;
+
+    width: 76%;
+    height: 230px;
+
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 8px;
+
+    background: #10131b;
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,0.7),
+        0 0 40px rgba(75,50,255,0.12);
+
+    transform: perspective(900px) rotateX(4deg);
+}
+
+.browser-top {
+    height: 25px;
+
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    padding-left: 10px;
+
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.browser-top span {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #555;
+}
+
+.browser-content {
+    padding: 20px;
+}
+
+.preview-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    font-family: Arial, sans-serif;
+    color: white;
+    font-size: 0.8rem;
+}
+
+.preview-logo-icon {
+    width: 25px;
+    height: 25px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 7px;
+
+    background: linear-gradient(
+        135deg,
+        #5438ff,
+        #7a32ff
+    );
+
+    font-size: 0.55rem;
+    font-weight: bold;
+}
+
+.preview-title {
+    margin-top: 30px;
+
+    color: #fff;
+
+    font-family: Arial, sans-serif;
+    font-size: 1.4rem;
+    font-weight: 800;
+}
+
+.preview-title strong {
+    color: #693cff;
+}
+
+.preview-lines {
+    margin-top: 12px;
+}
+
+.preview-lines span {
+    display: block;
+
+    width: 65%;
+    height: 5px;
+
+    margin-bottom: 6px;
+
+    border-radius: 10px;
+
+    background: #272b35;
+}
+
+.preview-lines span:nth-child(2) {
+    width: 50%;
+}
+
+.preview-lines span:nth-child(3) {
+    width: 35%;
+}
+
+.preview-cards {
+    display: flex;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.preview-cards div {
+    width: 70px;
+    height: 45px;
+
+    border-radius: 6px;
+
+    background: linear-gradient(
+        135deg,
+        #191d29,
+        #252a3b
+    );
+
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.preview-glow {
+    position: absolute;
+
+    width: 280px;
+    height: 280px;
+
+    border-radius: 50%;
+
+    background: rgba(91, 48, 255, 0.16);
+
+    filter: blur(70px);
+}
+
+
+/* =========================================================
+   FITNESS PREVIEW
+   ========================================================= */
+
+.fitness-preview {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(0, 255, 180, 0.12),
+            transparent 60%
+        ),
+        #06100f;
+}
+
+.fitness-ui {
+    width: 72%;
+    padding: 20px;
+
+    border: 1px solid rgba(0,255,180,0.16);
+    border-radius: 14px;
+
+    background: rgba(5, 18, 17, 0.88);
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.6);
+}
+
+.fitness-header {
+    display: flex;
+    justify-content: space-between;
+
+    color: #00ffb3;
+
+    font-family: monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+}
+
+.ai-dot {
+    animation: pulse-ai 1.8s infinite;
+}
+
+@keyframes pulse-ai {
+    0%, 100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.3;
+    }
+}
+
+.fitness-main {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    margin-top: 20px;
+}
+
+.fitness-ring {
+    width: 85px;
+    height: 85px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 50%;
+
+    border: 7px solid #12352e;
+    border-top-color: #00ffb3;
+    border-right-color: #00ffb3;
+
+    color: #00ffb3;
+
+    font-family: monospace;
+    font-size: 0.8rem;
+}
+
+.fitness-info small,
+.fitness-stats small {
+    display: block;
+
+    color: #65746f;
+
+    font-family: monospace;
+    font-size: 0.55rem;
+}
+
+.fitness-info strong {
+    display: block;
+
+    margin: 3px 0;
+
+    color: #fff;
+
+    font-family: monospace;
+    font-size: 1.7rem;
+}
+
+.fitness-info span {
+    color: #778580;
+    font-size: 0.65rem;
+}
+
+.fitness-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+
+    margin-top: 20px;
+}
+
+.fitness-stats div {
+    padding: 10px;
+
+    border-radius: 7px;
+
+    background: rgba(255,255,255,0.03);
+}
+
+.fitness-stats strong {
+    display: block;
+
+    margin-top: 4px;
+
+    color: #fff;
+
+    font-family: monospace;
+    font-size: 0.8rem;
+}
+
+
+/* =========================================================
+   SPIDER LOCATOR
+   ========================================================= */
+
+.locator-preview {
+    display: grid;
+    place-items: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(0, 255, 255, 0.08),
+            transparent 50%
+        ),
+        #030a0d;
+}
+
+.radar {
+    position: relative;
+
+    width: 230px;
+    height: 230px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(0,255,255,0.4);
+
+    background:
+        radial-gradient(
+            circle,
+            transparent 30%,
+            rgba(0,255,255,0.03) 31%,
+            transparent 32%
+        );
+}
+
+.radar-circle {
+    position: absolute;
+
+    border: 1px solid rgba(0,255,255,0.15);
+
+    border-radius: 50%;
+}
+
+.circle-1 {
+    inset: 25%;
+}
+
+.circle-2 {
+    inset: 12%;
+}
+
+.circle-3 {
+    inset: 0;
+}
+
+.radar-cross {
+    position: absolute;
+
+    background: rgba(0,255,255,0.12);
+}
+
+.radar-cross.horizontal {
+    top: 50%;
+    left: 0;
+
+    width: 100%;
+    height: 1px;
+}
+
+.radar-cross.vertical {
+    left: 50%;
+    top: 0;
+
+    width: 1px;
+    height: 100%;
+}
+
+.radar-sweep {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    width: 50%;
+    height: 1px;
+
+    transform-origin: left center;
+
+    background: linear-gradient(
+        90deg,
+        rgba(0,255,255,0.9),
+        transparent
+    );
+
+    animation: radar-spin 3s linear infinite;
+}
+
+@keyframes radar-spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.radar-center {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    width: 8px;
+    height: 8px;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background: #00ffff;
+
+    box-shadow: 0 0 15px #00ffff;
+}
+
+.radar-target {
+    position: absolute;
+
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #ff315c;
+
+    box-shadow: 0 0 15px #ff315c;
+
+    animation: target-pulse 1.5s infinite;
+}
+
+.target-1 {
+    top: 28%;
+    left: 67%;
+}
+
+.target-2 {
+    top: 63%;
+    left: 28%;
+    animation-delay: 0.4s;
+}
+
+.target-3 {
+    top: 73%;
+    left: 67%;
+    animation-delay: 0.8s;
+}
+
+@keyframes target-pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.7);
+        opacity: 0.4;
+    }
+}
+
+.locator-coordinates {
+    position: absolute;
+
+    right: 25px;
+    bottom: 20px;
+
+    color: #607176;
+
+    font-family: monospace;
+    font-size: 0.55rem;
+    line-height: 1.6;
+}
+
+.locator-coordinates strong {
+    color: #00ffff;
+}
+
+
+/* =========================================================
+   CONTENT
+   ========================================================= */
+
+.product-content {
+    padding: 26px;
+}
+
+.product-label {
+    margin-bottom: 10px;
+
+    color: #566171;
+
+    font-family: monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.14em;
+}
+
+.product-content h3 {
+    margin: 0;
+
+    color: #fff;
+
+    font-family: monospace;
+    font-size: clamp(1.35rem, 2vw, 1.8rem);
+}
+
+.product-content p {
+    max-width: 850px;
+
+    margin: 16px 0 22px;
+
+    color: var(--text-dim, #7b8494);
+
+    font-family: monospace;
+    font-size: 0.82rem;
+    line-height: 1.8;
+}
+
+
+/* ---------- TAGS ---------- */
+
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+}
+
+.tech-stack span {
+    padding: 7px 10px;
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    color: #b8c1ce;
+
+    background: rgba(255,255,255,0.025);
+
+    font-family: monospace;
+    font-size: 0.65rem;
+
+    transition: 0.25s ease;
+}
+
+.tech-stack span:hover {
+    border-color: rgba(0,240,255,0.4);
+    color: #00f0ff;
+}
+
+
+/* ---------- BOTTOM ---------- */
+
+.product-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-top: 25px;
+    padding-top: 18px;
+
+    border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.product-type {
+    color: #48515e;
+
+    font-family: monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+}
+
+.product-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 10px 15px;
+
+    border: 1px solid #00f0ff;
+
+    color: #00f0ff;
+
+    background: rgba(0,240,255,0.03);
+
+    font-family: monospace;
+    font-size: 0.68rem;
+    text-decoration: none;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.product-button:hover {
+    color: #020608;
+
+    background: #00f0ff;
+
+    box-shadow:
+        0 0 25px rgba(0,240,255,0.25);
+}
+
+.product-button span {
+    font-size: 1rem;
+}
+
+
+/* =========================================================
+   CUSTOM AI SERVICE
+   ========================================================= */
+
+.product-service {
+    grid-column: span 2;
+
+    min-height: 300px;
+
+    border-color: rgba(0,255,157,0.16);
+
+    background:
+        radial-gradient(
+            circle at 80% 50%,
+            rgba(0,255,157,0.07),
+            transparent 35%
+        ),
+        #070d0d;
+}
+
+.service-grid {
+    position: absolute;
+    inset: 0;
+
+    opacity: 0.2;
+
+    background-image:
+        linear-gradient(
+            rgba(0,255,157,0.06) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(0,255,157,0.06) 1px,
+            transparent 1px
+        );
+
+    background-size: 30px 30px;
+
+    mask-image:
+        linear-gradient(
+            to right,
+            transparent,
+            black
+        );
+}
+
+.service-content {
+    position: relative;
+
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 28px;
+
+    padding: 45px 30px 30px;
+}
+
+.service-icon {
+    width: 80px;
+    height: 80px;
+
+    display: grid;
+    place-items: center;
+
+    border: 1px solid rgba(0,255,157,0.35);
+
+    color: #00ff9d;
+
+    background: rgba(0,255,157,0.05);
+
+    font-family: monospace;
+    font-size: 1.4rem;
+
+    box-shadow:
+        inset 0 0 30px rgba(0,255,157,0.04);
+}
+
+.service-content h3 {
+    margin: 0;
+
+    color: #fff;
+
+    font-family: monospace;
+    font-size: clamp(1.6rem, 3vw, 2.5rem);
+}
+
+.service-content p {
+    max-width: 700px;
+
+    margin: 12px 0 20px;
+
+    color: #718079;
+
+    font-family: monospace;
+    font-size: 0.82rem;
+    line-height: 1.8;
+}
+
+.service-footer {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 30px;
+
+    padding: 20px 30px;
+
+    border-top: 1px solid rgba(0,255,157,0.1);
+}
+
+.service-footer strong {
+    display: block;
+
+    color: #00ff9d;
+
+    font-family: monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+}
+
+.service-footer span {
+    display: block;
+
+    margin-top: 6px;
+
+    color: #4e5a55;
+
+    font-family: monospace;
+    font-size: 0.62rem;
+}
+
+.product-button-large {
+    border-color: #00ff9d;
+    color: #00ff9d;
+}
+
+.product-button-large:hover {
+    color: #02100a;
+    background: #00ff9d;
+
+    box-shadow:
+        0 0 25px rgba(0,255,157,0.2);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+    .products-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .products-intro {
+        max-width: 650px;
+    }
+
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .product-featured,
+    .product-service {
+        grid-column: span 1;
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .commercial-products {
+        padding: 80px 18px;
+    }
+
+    .products-heading {
+        margin-bottom: 35px;
+    }
+
+    .products-heading h2 {
+        font-size: 2.1rem;
+    }
+
+    .product-preview {
+        height: 250px;
+    }
+
+    .preview-browser {
+        width: 85%;
+        height: 195px;
+    }
+
+    .fitness-ui {
+        width: 88%;
+    }
+
+    .radar {
+        width: 180px;
+        height: 180px;
+    }
+
+    .product-content {
+        padding: 20px;
+    }
+
+    .product-top {
+        padding: 15px;
+    }
+
+    .product-bottom {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .product-button {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .service-content {
+        grid-template-columns: 1fr;
+        padding: 30px 20px;
+    }
+
+    .service-icon {
+        width: 65px;
+        height: 65px;
+    }
+
+    .service-footer {
+        align-items: stretch;
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .product-button-large {
+        width: 100%;
+    }
+
+}
     </style>
 </head>
 <body>
@@ -348,196 +1417,331 @@
             </div>
         </section>
 
-        <section id="projects">
-    <h2 class="section-title">03_КОММЕРЧЕСКИЕ_ПРОДУКТЫ</h2>
+        <section id="projects" class="commercial-products">
 
-    <div class="projects-grid">
+    <div class="products-heading">
+        <div>
+            <span class="section-index">03_КОММЕРЧЕСКИЕ_ПРОДУКТЫ</span>
+            <h2>ПРОДУКТЫ, КОТОРЫЕ<br><span>МОЖНО ЗАПУСТИТЬ</span></h2>
+        </div>
 
-        <!-- COURSEFLOW -->
-        <article class="project-card">
-            <div class="p-header">
-                <span style="font-size: 0.7rem; color: var(--accent);">
+        <p class="products-intro">
+            Не просто учебные проекты.
+            Я создаю реальные цифровые продукты:
+            web-приложения, AI-сервисы и интерактивные системы.
+        </p>
+    </div>
+
+    <div class="products-grid">
+
+        <!-- ================= COURSEFLOW ================= -->
+
+        <article class="product-card product-featured">
+
+            <div class="product-top">
+                <div class="product-id">
                     PRODUCT_01 / EDTECH
-                </span>
+                </div>
 
-                <span style="font-size: 0.7rem; color: #00ff88;">
-                    ● LIVE
-                </span>
+                <div class="product-status status-live">
+                    <span></span>
+                    LIVE
+                </div>
             </div>
 
-            <div class="p-body">
+            <div class="product-preview courseflow-preview">
+
+                <div class="preview-browser">
+                    <div class="browser-top">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+
+                    <div class="browser-content">
+                        <div class="preview-logo">
+                            <div class="preview-logo-icon">CF</div>
+                            <strong>CourseFlow</strong>
+                        </div>
+
+                        <div class="preview-title">
+                            Твой путь в
+                            <strong>IT-будущее</strong>
+                        </div>
+
+                        <div class="preview-lines">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+
+                        <div class="preview-cards">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="preview-glow"></div>
+
+            </div>
+
+
+            <div class="product-content">
+
+                <div class="product-label">
+                    EDTECH PLATFORM
+                </div>
+
                 <h3>CourseFlow</h3>
 
-                <p style="font-size: 0.85rem; color: var(--text-dim); margin-top: 10px;">
-                    Интерактивная образовательная платформа для изучения
-                    IT и современных технологий. Курсы, уроки, практика,
-                    тестирование, прогресс пользователя и игровая система обучения.
+                <p>
+                    Интерактивная образовательная платформа
+                    для изучения IT и современных технологий.
+                    Курсы, уроки, практика, тестирование,
+                    прогресс и игровая система обучения.
                 </p>
 
-                <div style="margin-top: 15px;">
-                    <span class="skill-tag">Next.js</span>
-                    <span class="skill-tag">React</span>
-                    <span class="skill-tag">TypeScript</span>
-                    <span class="skill-tag">Firebase</span>
-                    <span class="skill-tag">UI/UX</span>
+                <div class="tech-stack">
+                    <span>Next.js</span>
+                    <span>React</span>
+                    <span>TypeScript</span>
+                    <span>Firebase</span>
+                    <span>UI/UX</span>
                 </div>
+
+                <div class="product-bottom">
+
+                    <span class="product-type">
+                        DIGITAL PRODUCT
+                    </span>
+
+                    <a href="#" class="product-button">
+                        LIVE DEMO
+                        <span>↗</span>
+                    </a>
+
+                </div>
+
             </div>
 
-            <div class="p-footer">
-                <span style="font-size: 0.7rem; color: var(--text-dim);">
-                    EDTECH PLATFORM
-                </span>
-
-                <a
-                    href="https://courseflow-sable.vercel.app/"
-                    target="_blank"
-                    class="btn"
-                    style="padding: 5px 10px; margin-left: auto;"
-                >
-                    LIVE_DEMO
-                </a>
-            </div>
         </article>
 
 
-        <!-- AI FITNESS -->
-        <article class="project-card">
-            <div class="p-header">
-                <span style="font-size: 0.7rem; color: var(--accent);">
+        <!-- ================= AI FITNESS ================= -->
+
+        <article class="product-card">
+            <div class="product-top">
+                <div class="product-id">
                     PRODUCT_02 / AI
-                </span>
-
-                <span style="font-size: 0.7rem; color: #ffaa00;">
-                    ● DEVELOPMENT
-                </span>
-            </div>
-
-            <div class="p-body">
-                <h3>AI Fitness Assistant</h3>
-
-                <p style="font-size: 0.85rem; color: var(--text-dim); margin-top: 10px;">
-                    AI-фитнес ассистент нового поколения. Анализ питания
-                    по фотографии, оценка продуктов, расчёт КБЖУ,
-                    анализ физической активности и персональные рекомендации.
-                </p>
-
-                <div style="margin-top: 15px;">
-                    <span class="skill-tag">Flutter</span>
-                    <span class="skill-tag">AI</span>
-                    <span class="skill-tag">Supabase</span>
-                    <span class="skill-tag">Computer Vision</span>
+                </div>
+                <div class="product-status status-development">
+                    <span></span>
+                    DEVELOPMENT
                 </div>
             </div>
 
-            <div class="p-footer">
-                <span style="font-size: 0.7rem; color: var(--text-dim);">
+            <div class="product-preview fitness-preview">
+
+                <div class="fitness-ui">
+
+                    <div class="fitness-header">
+                        <span>AI FITNESS</span>
+                        <span class="ai-dot">●</span>
+                    </div>
+
+                    <div class="fitness-main">
+                        <div class="fitness-ring">
+                            <span>AI</span>
+                        </div>
+
+                        <div class="fitness-info">
+                            <small>DAILY ANALYSIS</small>
+                            <strong>87%</strong>
+                            <span>Activity score</span>
+                        </div>
+                    </div>
+
+                    <div class="fitness-stats">
+                        <div>
+                            <small>CALORIES</small>
+                            <strong>2,480</strong>
+                        </div>
+
+                        <div>
+                            <small>PROTEIN</small>
+                            <strong>142g</strong>
+                        </div>
+
+                        <div>
+                            <small>ACTIVITY</small>
+                            <strong>8.4k</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="product-content">
+                <div class="product-label">
                     AI / FITNESS
-                </span>
-
-                <a
-                    href="#"
-                    class="btn"
-                    style="padding: 5px 10px; margin-left: auto;"
-                >
-                    CASE_STUDY
-                </a>
+                </div>
+                <h3>AI Fitness Assistant</h3>
+                <p>
+                    AI-фитнес ассистент нового поколения.
+                    Анализ питания по фотографии, оценка
+                    продуктов, расчёт КБЖУ, анализ активности
+                    и персональные рекомендации.
+                </p>
+                <div class="tech-stack">
+                    <span>Flutter</span>
+                    <span>AI</span>
+                    <span>Supabase</span>
+                    <span>Computer Vision</span>
+                </div>
+                <div class="product-bottom">
+                    <span class="product-type">
+                        AI PRODUCT
+                    </span>
+                    <a href="#" class="product-button">
+                        CASE STUDY
+                        <span>↗</span>
+                    </a>
+                </div>
             </div>
         </article>
 
 
-        <!-- SPIDER LOCATOR -->
-        <article class="project-card">
-            <div class="p-header">
-                <span style="font-size: 0.7rem; color: var(--accent);">
-                    PRODUCT_03 / WEB_APP
-                </span>
+        <!-- ================= SPIDER LOCATOR ================= -->
 
-                <span style="font-size: 0.7rem; color: #ffaa00;">
-                    ● DEVELOPMENT
-                </span>
-            </div>
-
-            <div class="p-body">
-                <h3>Spider Locator</h3>
-
-                <p style="font-size: 0.85rem; color: var(--text-dim); margin-top: 10px;">
-                    Концепт интерактивного геолокатора в стиле
-                    технологических интерфейсов из научно-фантастических
-                    фильмов. Карта, позиционирование и визуальная система
-                    отслеживания объектов.
-                </p>
-
-                <div style="margin-top: 15px;">
-                    <span class="skill-tag">JavaScript</span>
-                    <span class="skill-tag">Maps API</span>
-                    <span class="skill-tag">Web UI</span>
-                    <span class="skill-tag">Animation</span>
+        <article class="product-card">
+            <div class="product-top">
+                <div class="product-id">
+                    PRODUCT_03 / WEB APP
+                </div>
+                <div class="product-status status-concept">
+                    <span></span>
+                    CONCEPT
                 </div>
             </div>
 
-            <div class="p-footer">
-                <span style="font-size: 0.7rem; color: var(--text-dim);">
+            <div class="product-preview locator-preview">
+                <div class="radar">
+
+                    <div class="radar-circle circle-1"></div>
+                    <div class="radar-circle circle-2"></div>
+                    <div class="radar-circle circle-3"></div>
+
+                    <div class="radar-cross horizontal"></div>
+                    <div class="radar-cross vertical"></div>
+
+                    <div class="radar-sweep"></div>
+
+                    <div class="radar-target target-1"></div>
+                    <div class="radar-target target-2"></div>
+                    <div class="radar-target target-3"></div>
+
+                    <div class="radar-center"></div>
+
+                </div>
+                
+                <div class="locator-coordinates">
+                    TARGET DETECTED<br>
+                    <strong>40.7128 / -74.0060</strong>
+                </div>
+            </div>
+
+            <div class="product-content">
+                <div class="product-label">
                     INTERACTIVE WEB
-                </span>
+                </div>
+                <h3>Spider Locator</h3>
+                <p>
+                    Концепт интерактивного геолокатора
+                    в стиле технологических интерфейсов
+                    из научно-фантастических фильмов.
+                    Карта, позиционирование и визуальная
+                    система отслеживания объектов.
+                </p>
+                <div class="tech-stack">
+                    <span>JavaScript</span>
+                    <span>Maps API</span>
+                    <span>Web UI</span>
+                    <span>Animation</span>
+                </div>
 
-                <a
-                    href="#"
-                    class="btn"
-                    style="padding: 5px 10px; margin-left: auto;"
-                >
-                    VIEW_CASE
-                </a>
+                <div class="product-bottom">
+                    <span class="product-type">
+                        SHOWCASE
+                    </span>
+                    <a href="#" class="product-button">
+                        VIEW CASE
+                        <span>↗</span>
+                    </a>
+                </div>
             </div>
         </article>
 
 
-        <!-- CUSTOM AI -->
-        <article class="project-card">
-            <div class="p-header">
-                <span style="font-size: 0.7rem; color: var(--accent);">
-                    SERVICE_04 / CUSTOM_AI
-                </span>
+        <!-- ================= CUSTOM AI ================= -->
 
-                <span style="font-size: 0.7rem; color: #00ff88;">
-                    ● AVAILABLE
-                </span>
-            </div>
+        <article class="product-card product-service">
+            <div class="service-grid"></div>
+            <div class="product-top">
+                <div class="product-id">
+                    SERVICE_04 / CUSTOM AI
+                </div>
 
-            <div class="p-body">
-                <h3>Custom AI Products</h3>
-
-                <p style="font-size: 0.85rem; color: var(--text-dim); margin-top: 10px;">
-                    Разработка индивидуальных AI-продуктов под задачу
-                    клиента: AI-ассистенты, интеллектуальные сервисы,
-                    автоматизация процессов и web-приложения с AI.
-                </p>
-
-                <div style="margin-top: 15px;">
-                    <span class="skill-tag">AI</span>
-                    <span class="skill-tag">Python</span>
-                    <span class="skill-tag">Next.js</span>
-                    <span class="skill-tag">API</span>
-                    <span class="skill-tag">Automation</span>
+                <div class="product-status status-available">
+                    <span></span>
+                    AVAILABLE
                 </div>
             </div>
 
-            <div class="p-footer">
-                <span style="font-size: 0.7rem; color: var(--text-dim);">
-                    FOR_BUSINESS
-                </span>
 
-                <a
-                    href="#contact"
-                    class="btn"
-                    style="padding: 5px 10px; margin-left: auto;"
-                >
-                    ORDER_PRODUCT
+            <div class="service-content">
+
+                <div class="service-icon">
+                    AI
+                </div>
+
+                <div>
+                    <div class="product-label">
+                        FOR BUSINESS
+                    </div>
+                    <h3>Custom AI Products</h3>
+                    <p>
+                        Есть идея цифрового продукта?
+                        Разработаю AI-сервис, web-приложение
+                        или автоматизацию под конкретную
+                        задачу бизнеса.
+                    </p>
+                    <div class="tech-stack">
+                        <span>AI</span>
+                        <span>Python</span>
+                        <span>Next.js</span>
+                        <span>API</span>
+                        <span>Automation</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-footer">
+                <div>
+                    <strong>IDEA → MVP → PRODUCT</strong>
+                    <span>Разработка под задачу клиента</span>
+                </div>
+
+                <a href="#contact" class="product-button product-button-large">
+                    ОБСУДИТЬ ПРОЕКТ
+                    <span>↗</span>
                 </a>
             </div>
         </article>
-
     </div>
 </section>
+        
         <section id="contacts">
             <h2 class="section-title" data-key="title_contact">04_КАНАЛ_СВЯЗИ</h2>
             <div class="contact-layout">
