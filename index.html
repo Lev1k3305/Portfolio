@@ -1857,6 +1857,380 @@
     }
 
 }
+
+        /* ================================
+   ORDER MODAL
+================================ */
+
+.order-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 5000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+
+    background: rgba(0, 0, 0, 0.82);
+    backdrop-filter: blur(8px);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease;
+}
+
+.order-modal.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.order-window {
+    width: 100%;
+    max-width: 680px;
+    max-height: 90vh;
+    overflow-y: auto;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0, 243, 255, 0.04),
+            transparent 40%
+        ),
+        var(--surface);
+
+    border: 1px solid var(--accent);
+
+    box-shadow:
+        0 0 30px rgba(0, 243, 255, 0.12),
+        inset 0 0 30px rgba(0, 243, 255, 0.02);
+
+    transform: translateY(25px) scale(0.97);
+    transition: transform 0.25s ease;
+
+    position: relative;
+}
+
+.order-modal.active .order-window {
+    transform: translateY(0) scale(1);
+}
+
+/* top */
+
+.order-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 20px 24px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.order-system {
+    color: var(--accent);
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+}
+
+.order-close {
+    width: 34px;
+    height: 34px;
+
+    background: transparent;
+    border: 1px solid var(--border);
+
+    color: var(--text-dim);
+
+    cursor: pointer;
+
+    font-family: inherit;
+    font-size: 1rem;
+
+    transition: 0.2s;
+}
+
+.order-close:hover {
+    border-color: var(--pink);
+    color: var(--pink);
+
+    box-shadow: 0 0 10px rgba(255, 0, 85, 0.25);
+}
+
+/* body */
+
+.order-body {
+    padding: 25px;
+}
+
+.order-title {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+.order-subtitle {
+    color: var(--text-dim);
+    font-size: 0.75rem;
+    margin-bottom: 25px;
+}
+
+/* fields */
+
+.order-field {
+    margin-bottom: 18px;
+}
+
+.order-label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: var(--accent);
+
+    font-size: 0.65rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.order-input,
+.order-textarea,
+.order-select {
+    width: 100%;
+
+    background: #09090d;
+
+    border: 1px solid var(--border);
+
+    color: #fff;
+
+    padding: 13px;
+
+    font-family: inherit;
+    font-size: 0.75rem;
+
+    outline: none;
+
+    transition: 0.2s;
+}
+
+.order-input:focus,
+.order-textarea:focus,
+.order-select:focus {
+    border-color: var(--accent);
+
+    box-shadow:
+        0 0 0 1px var(--accent),
+        0 0 12px rgba(0, 243, 255, 0.12);
+}
+
+.order-textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* service cards */
+
+.order-services {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.order-service {
+    position: relative;
+}
+
+.order-service input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.order-service label {
+    display: block;
+
+    padding: 14px;
+
+    border: 1px solid var(--border);
+
+    background: #09090d;
+
+    cursor: pointer;
+
+    color: var(--text-dim);
+
+    font-size: 0.7rem;
+
+    transition: 0.2s;
+}
+
+.order-service label:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.order-service input:checked + label {
+    border-color: var(--accent);
+
+    color: var(--accent);
+
+    background: rgba(0, 243, 255, 0.06);
+
+    box-shadow:
+        inset 0 0 15px rgba(0, 243, 255, 0.04),
+        0 0 10px rgba(0, 243, 255, 0.08);
+}
+
+/* budget */
+
+.order-budget {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.budget-option {
+    position: relative;
+}
+
+.budget-option input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.budget-option label {
+    display: block;
+
+    padding: 12px;
+
+    text-align: center;
+
+    border: 1px solid var(--border);
+
+    background: #09090d;
+
+    color: var(--text-dim);
+
+    font-size: 0.7rem;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.budget-option label:hover {
+    border-color: var(--accent);
+}
+
+.budget-option input:checked + label {
+    border-color: var(--accent);
+    color: var(--accent);
+
+    background: rgba(0, 243, 255, 0.06);
+}
+
+/* footer */
+
+.order-footer {
+    margin-top: 25px;
+    padding-top: 20px;
+
+    border-top: 1px solid var(--border);
+}
+
+.order-submit {
+    width: 100%;
+
+    padding: 15px;
+
+    background: transparent;
+
+    border: 1px solid var(--accent);
+
+    color: var(--accent);
+
+    font-family: inherit;
+    font-size: 0.75rem;
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+}
+
+.order-submit:hover {
+    background: var(--accent);
+    color: #000;
+
+    box-shadow:
+        0 0 20px rgba(0, 243, 255, 0.35);
+}
+
+.order-submit:disabled {
+    opacity: 0.5;
+    cursor: wait;
+}
+
+/* result */
+
+.order-result {
+    display: none;
+
+    padding: 25px;
+
+    border: 1px solid #00ff88;
+
+    color: #00ff88;
+
+    text-align: center;
+
+    font-size: 0.8rem;
+
+    margin-top: 20px;
+
+    background: rgba(0, 255, 136, 0.04);
+}
+
+.order-result.show {
+    display: block;
+}
+
+.order-error {
+    border-color: var(--pink);
+    color: var(--pink);
+    background: rgba(255, 0, 85, 0.04);
+}
+
+/* mobile */
+
+@media (max-width: 600px) {
+
+    .order-window {
+        max-height: 95vh;
+    }
+
+    .order-body {
+        padding: 18px;
+    }
+
+    .order-services,
+    .order-budget {
+        grid-template-columns: 1fr;
+    }
+
+    .order-title {
+        font-size: 1.2rem;
+    }
+
+}
     </style>
 </head>
 <body>
@@ -1866,7 +2240,7 @@
         <a href="#skills" data-key="nav_skills">// НАВЫКИ</a>
         <a href="#education" data-key="nav_edu">// ОБУЧЕНИЕ</a>
         <a href="#projects" data-key="nav_projects">// ПРОЕКТЫ</a>
-        <a href="#contacts" data-key="nav_contacts">// СВЯЗЬ</a>
+        <a href="#contacts" data-key="nav_contacts">// ЗАКАЗ</a>
         <div class="lang-switch">
             <button class="lang-btn active" onclick="setLang('ru')" aria-label="Switch to Russian">RU</button>
             <button class="lang-btn" onclick="setLang('kz')" aria-label="Switch to Kazakh">KZ</button>
@@ -1890,7 +2264,7 @@
                 </div>
                 <div class="hero-buttons">
                     <a href="#projects" class="btn" data-key="btn_projects">ПРОЕКТЫ</a>
-                    <a href="#contacts" class="btn btn-pink" data-key="btn_contact">СВЯЗАТЬСЯ</a>
+                    <a href="#contacts" class="btn btn-pink" data-key="btn_contact">ЗАКАЗАТЬ ПРОЕКТ</a>
                 </div>
             </div>
         </section>
@@ -2295,10 +2669,9 @@
                     <small>СТАРТ</small>
                     <strong>от 80 000 ₸</strong>
                 </div>
-                <a href="#contact" class="service-order">
-                    ЗАКАЗАТЬ
-                    <span>↗</span>
-                </a>
+                <a href="javascript:void(0)" class="btn" onclick="openOrderModal('Web')">
+                  ЗАКАЗАТЬ
+             </a>
             </div>
         </article>
 
@@ -2342,10 +2715,9 @@
                     <small>СТАРТ</small>
                     <strong>от 120 000 ₸</strong>
                 </div>
-                <a href="#contact" class="service-order">
-                    ЗАКАЗАТЬ
-                    <span>↗</span>
-                </a>
+                <a href="javascript:void(0)" class="btn" onclick="openOrderModal('AI')">
+                   ЗАКАЗАТЬ
+             </a>
             </div>
         </article>
 
@@ -2390,10 +2762,9 @@
                     <small>СТАРТ</small>
                     <strong>от 150 000 ₸</strong>
                 </div>
-                <a href="#contact" class="service-order">
-                    ЗАКАЗАТЬ
-                    <span>↗</span>
-                </a>
+                <a href="javascript:void(0)" class="btn" onclick="openOrderModal('Мобильное')">
+                  ЗАКАЗАТЬ
+              </a>
             </div>
         </article>
         
@@ -2438,10 +2809,9 @@
                     <small>РАСЧЁТ</small>
                     <strong>ИНДИВИДУАЛЬНО</strong>
                 </div>
-                <a href="#contact" class="service-order service-order-green">
-                    ОБСУДИТЬ
-                    <span>↗</span>
-                </a>
+                <a href="javascript:void(0)" class="btn" onclick="openOrderModal('MVP')">
+                ЗАКАЗАТЬ
+             </a>
             </div>
         </article>
     </div>
@@ -2463,13 +2833,293 @@
             </p>
         </div>
 
-        <a href="#contact" class="custom-service-button">
-            ОБСУДИТЬ ИДЕЮ
-            <span>↗</span>
-        </a>
+        <a href="javascript:void(0)" class="btn" onclick="openOrderModal('Индивидуальный')">
+          ОБСУДИТЬ
+      </a>
     </div>
 </section>
 
+<!-- =================================
+     ORDER MODAL
+================================= -->
+
+<div class="order-modal" id="orderModal">
+    <div class="order-window">
+        <div class="order-top">
+            <span class="order-system">
+                // NEW_PROJECT_REQUEST
+            </span>
+            <button
+                type="button"
+                class="order-close"
+                id="orderClose"
+                aria-label="Закрыть"
+            >          ×
+            </button>
+        </div>
+
+        <div class="order-body">
+            <h2 class="order-title">
+                ЗАКАЗ РАЗРАБОТКИ
+            </h2>
+            <p class="order-subtitle">
+                Расскажите о задаче — я изучу запрос и свяжусь с вами.
+            </p>
+
+            <form
+                id="orderForm"
+                action="https://api.web3forms.com/submit"
+                method="POST"
+            >
+                <!-- Web3Forms -->
+                <input
+                    type="hidden"
+                    name="access_key"
+                    value="62501b13-39e7-4dc3-90ef-718fcfadd897"
+                >
+                <input
+                    type="hidden"
+                    name="subject"
+                    value="Новая заявка с Portfolio Prosto_Proger"
+                >
+                <input
+                    type="hidden"
+                    name="from_name"
+                    value="Portfolio Prosto_Proger"
+                >
+                <input
+                    type="checkbox"
+                    name="botcheck"
+                    style="display:none"
+                    tabindex="-1"
+                    autocomplete="off"
+                >
+
+                <!-- SERVICE -->
+
+                <div class="order-field">
+                    <span class="order-label">
+                        01 // ЧТО НУЖНО РАЗРАБОТАТЬ
+                    </span>
+                    <div class="order-services">
+                        <div class="order-service">
+                            <input
+                                type="radio"
+                                name="service"
+                                id="serviceWeb"
+                                value="Сайт / Web-приложение"
+                                required
+                            >
+                            <label for="serviceWeb">
+                                🌐 Сайт / Web App
+                            </label>
+                        </div>
+
+                        <div class="order-service">
+                            <input
+                                type="radio"
+                                name="service"
+                                id="serviceMobile"
+                                value="Мобильное приложение"
+                            >
+                            <label for="serviceMobile">
+                                📱 Мобильное приложение
+                            </label>
+                        </div>
+
+                        <div class="order-service">
+                            <input
+                                type="radio"
+                                name="service"
+                                id="serviceAI"
+                                value="AI-продукт"
+                            >
+                            <label for="serviceAI">
+                                🤖 AI-продукт
+                            </label>
+                        </div>
+
+                        <div class="order-service">
+                            <input
+                                type="radio"
+                                name="service"
+                                id="serviceMVP"
+                                value="MVP под идею"
+                            >
+                            <label for="serviceMVP">
+                                🚀 MVP под идею
+                            </label>
+                        </div>
+
+
+                        <div class="order-service">
+                            <input
+                                type="radio"
+                                name="service"
+                                id="serviceCustom"
+                                value="Индивидуальный проект"
+                            >
+                            <label for="serviceCustom">
+                                ⚙️ Индивидуальный проект
+                            </label>
+                        </div>
+
+
+                        <div class="order-service">
+                            <input
+                                type="radio"
+                                name="service"
+                                id="serviceOther"
+                                value="Другое"
+                            >
+                            <label for="serviceOther">
+                                💡 Другое
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NAME -->
+
+                <div class="order-field">
+                    <label
+                        class="order-label"
+                        for="orderName"
+                    >
+                        02 // ИМЯ
+                    </label>
+                    <input
+                        class="order-input"
+                        id="orderName"
+                        type="text"
+                        name="name"
+                        placeholder="ВАШЕ ИМЯ //"
+                        maxlength="100"
+                        required
+                    >
+                </div>
+
+                <!-- CONTACT -->
+
+                <div class="order-field">
+                    <label
+                        class="order-label"
+                        for="orderContact"
+                    >
+                        03 // КОНТАКТ
+                    </label>
+                    <input
+                        class="order-input"
+                        id="orderContact"
+                        type="text"
+                        name="contact"
+                        placeholder="@telegram / Instagram / WhatsApp"
+                        maxlength="150"
+                        required
+                    >
+                </div>
+
+                <!-- BUDGET -->
+
+                <div class="order-field">
+                    <span class="order-label">
+                        04 // БЮДЖЕТ
+                    </span>
+                    <div class="order-budget">
+                        <div class="budget-option">
+                            <input
+                                type="radio"
+                                name="budget"
+                                id="budget1"
+                                value="До 100 000 ₸"
+                                required
+                            >
+                            <label for="budget1">
+                                ДО 100 000 ₸
+                            </label>
+                        </div>
+
+                        <div class="budget-option">
+                            <input
+                                type="radio"
+                                name="budget"
+                                id="budget2"
+                                value="100 000 — 200 000 ₸"
+                            >
+                            <label for="budget2">
+                                100–200K ₸
+                            </label>
+                        </div>
+
+                        <div class="budget-option">
+                            <input
+                                type="radio"
+                                name="budget"
+                                id="budget3"
+                                value="200 000 — 500 000 ₸"
+                            >
+                            <label for="budget3">
+                                200–500K ₸
+                            </label>
+                        </div>
+
+                        <div class="budget-option">
+                            <input
+                                type="radio"
+                                name="budget"
+                                id="budget4"
+                                value="500 000 ₸ и выше"
+                            >
+                            <label for="budget4">
+                                500K+ ₸
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- DESCRIPTION -->
+
+                <div class="order-field">
+                    <label
+                        class="order-label"
+                        for="orderMessage"
+                    >
+                        05 // ОПИСАНИЕ ЗАДАЧИ
+                    </label>
+                    <textarea
+                        class="order-textarea"
+                        id="orderMessage"
+                        name="message"
+                        placeholder="Расскажите, что вы хотите создать..."
+                        maxlength="3000"
+                        required
+                    ></textarea>
+                </div>
+
+
+                <!-- SUBMIT -->
+
+                <div class="order-footer">
+                    <button
+                        type="submit"
+                        class="order-submit"
+                        id="orderSubmit"
+                    >
+                        [ ОТПРАВИТЬ ЗАЯВКУ ]
+                    </button>
+                </div>
+
+                <!-- RESULT -->
+                <div
+                    class="order-result"
+                    id="orderResult"
+                ></div>
+            </form>
+        </div>
+    </div>
+</div>
+        
     <script>
         const translations = {
             ru: {
@@ -2651,6 +3301,237 @@
                 }
             });
         }
+
+        /* =================================
+   ORDER MODAL
+================================= */
+
+const orderModal = document.getElementById('orderModal');
+const orderClose = document.getElementById('orderClose');
+const orderForm = document.getElementById('orderForm');
+const orderSubmit = document.getElementById('orderSubmit');
+const orderResult = document.getElementById('orderResult');
+
+
+/* OPEN */
+
+function openOrderModal(service = '') {
+
+    if (!orderModal) return;
+
+    orderModal.classList.add('active');
+
+    document.body.style.overflow = 'hidden';
+
+
+    /* Automatically select service */
+
+    if (service) {
+
+        const serviceInputs =
+            document.querySelectorAll(
+                'input[name="service"]'
+            );
+
+        serviceInputs.forEach(input => {
+
+            if (
+                input.value
+                    .toLowerCase()
+                    .includes(service.toLowerCase())
+            ) {
+
+                input.checked = true;
+
+            }
+
+        });
+
+    }
+
+}
+
+
+/* CLOSE */
+
+function closeOrderModal() {
+
+    if (!orderModal) return;
+
+    orderModal.classList.remove('active');
+
+    document.body.style.overflow = '';
+
+}
+
+
+/* CLOSE BUTTON */
+
+if (orderClose) {
+
+    orderClose.addEventListener(
+        'click',
+        closeOrderModal
+    );
+
+}
+
+
+/* CLICK OUTSIDE */
+
+if (orderModal) {
+
+    orderModal.addEventListener(
+        'click',
+        function(e) {
+
+            if (e.target === orderModal) {
+
+                closeOrderModal();
+
+            }
+
+        }
+    );
+
+}
+
+
+/* ESC */
+
+document.addEventListener(
+    'keydown',
+    function(e) {
+
+        if (
+            e.key === 'Escape' &&
+            orderModal.classList.contains('active')
+        ) {
+
+            closeOrderModal();
+
+        }
+
+    }
+);
+
+
+/* =================================
+   ORDER FORM SUBMISSION
+================================= */
+
+if (orderForm) {
+
+    orderForm.addEventListener(
+        'submit',
+        async function(e) {
+
+            e.preventDefault();
+
+
+            orderSubmit.disabled = true;
+
+            orderSubmit.textContent =
+                '[ ПЕРЕДАЧА ДАННЫХ... ]';
+
+
+            orderResult.classList.remove(
+                'show',
+                'order-error'
+            );
+
+
+            const formData =
+                new FormData(orderForm);
+
+
+            try {
+
+                const response =
+                    await fetch(
+                        orderForm.action,
+                        {
+                            method: 'POST',
+                            body: formData,
+                            headers: {
+                                'Accept':
+                                    'application/json'
+                            }
+                        }
+                    );
+
+
+                const result =
+                    await response.json();
+
+                if (response.ok) {
+                    orderResult.classList.add(
+                        'show'
+                    );
+
+                    orderResult.innerHTML = `
+                        <strong>
+                            ✓ ЗАЯВКА ПЕРЕДАНА
+                        </strong>
+                        <br><br>
+                        Я получил ваш запрос.
+                        Свяжусь с вами по указанному контакту.
+                    `;
+
+                    orderForm.reset();
+                    orderSubmit.textContent =
+                        '[ ЗАЯВКА ОТПРАВЛЕНА ]';
+
+                    setTimeout(() => {
+                       closeOrderModal();
+                        orderResult.classList.remove(
+                            'show'
+                        );
+                        orderSubmit.disabled =
+                            false;
+
+                        orderSubmit.textContent =
+                            '[ ОТПРАВИТЬ ЗАЯВКУ ]';
+                    }, 3000);
+                } else {
+                    throw new Error(
+                        result.message ||
+                        'Ошибка отправки'
+                    );
+                }
+            } catch (error) {
+
+                console.error(
+                    'Order form error:',
+                    error
+                );
+
+
+                orderResult.classList.add(
+                    'show',
+                    'order-error'
+                );
+
+                orderResult.innerHTML = `
+                    <strong>
+                        ✕ ОШИБКА ПЕРЕДАЧИ
+                    </strong>
+                    <br><br>
+                    Не удалось отправить заявку.
+                    Попробуйте ещё раз или свяжитесь со мной напрямую.
+                `;
+
+
+                orderSubmit.disabled =
+                    false;
+
+                orderSubmit.textContent =
+                    '[ ПОВТОРИТЬ ОТПРАВКУ ]';
+
+            }
+        }
+    );
+}
     </script>
 </body>
 </html>
