@@ -1360,6 +1360,503 @@
     }
 
 }
+
+        /* =========================================================
+   SERVICES
+   ========================================================= */
+
+.services-section {
+    position: relative;
+    padding: 120px 40px;
+    overflow: hidden;
+}
+
+
+/* ---------- HEADER ---------- */
+
+.services-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 60px;
+    margin-bottom: 55px;
+}
+
+.services-heading h2 {
+    margin: 0;
+
+    font-family: monospace;
+    font-size: clamp(2rem, 5vw, 4rem);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+}
+
+.services-heading h2 span {
+    color: var(--accent, #00f0ff);
+}
+
+.services-intro {
+    max-width: 430px;
+    margin: 0;
+
+    color: var(--text-dim, #7b8494);
+
+    font-family: monospace;
+    font-size: 0.9rem;
+    line-height: 1.8;
+}
+
+
+/* ---------- GRID ---------- */
+
+.services-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 22px;
+}
+
+
+/* ---------- CARD ---------- */
+
+.service-card {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    min-height: 520px;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(0, 240, 255, 0.12);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(10, 15, 24, 0.98),
+            rgba(5, 8, 13, 0.98)
+        );
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-6px);
+
+    border-color:
+        rgba(0, 240, 255, 0.4);
+
+    box-shadow:
+        0 20px 70px rgba(0, 0, 0, 0.5),
+        0 0 35px rgba(0, 240, 255, 0.05);
+}
+
+
+/* ---------- NUMBER ---------- */
+
+.service-number {
+    position: absolute;
+
+    top: 18px;
+    right: 20px;
+
+    color: rgba(255,255,255,0.12);
+
+    font-family: monospace;
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+
+/* ---------- TOP ---------- */
+
+.service-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 24px 25px;
+
+    border-bottom:
+        1px solid rgba(255,255,255,0.06);
+}
+
+.service-icon {
+    width: 62px;
+    height: 62px;
+
+    display: grid;
+    place-items: center;
+
+    border:
+        1px solid rgba(0,240,255,0.3);
+
+    color: #00f0ff;
+
+    background:
+        rgba(0,240,255,0.04);
+
+    font-family: monospace;
+    font-size: 0.75rem;
+    font-weight: bold;
+
+    box-shadow:
+        inset 0 0 25px rgba(0,240,255,0.04);
+}
+
+.service-icon-ai {
+    color: #a66cff;
+
+    border-color:
+        rgba(166,108,255,0.35);
+
+    background:
+        rgba(166,108,255,0.05);
+}
+
+.service-icon-mobile {
+    color: #4dffb3;
+
+    border-color:
+        rgba(77,255,179,0.3);
+
+    background:
+        rgba(77,255,179,0.04);
+}
+
+.service-icon-mvp {
+    color: #ffb000;
+
+    border-color:
+        rgba(255,176,0,0.3);
+
+    background:
+        rgba(255,176,0,0.04);
+}
+
+
+/* ---------- STATUS ---------- */
+
+.service-status {
+    color: #00ff9d;
+
+    font-family: monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+}
+
+.service-status::before {
+    content: "●";
+
+    margin-right: 7px;
+
+    text-shadow:
+        0 0 10px currentColor;
+}
+
+.service-status-green {
+    color: #ffb000;
+}
+
+
+/* ---------- CONTENT ---------- */
+
+.service-card-content {
+    flex: 1;
+
+    padding: 30px 25px;
+}
+
+.service-category {
+    display: block;
+
+    margin-bottom: 12px;
+
+    color: #566171;
+
+    font-family: monospace;
+    font-size: 0.62rem;
+
+    letter-spacing: 0.15em;
+}
+
+.service-card-content h3 {
+    margin: 0;
+
+    color: #fff;
+
+    font-family: monospace;
+    font-size: clamp(1.35rem, 2vw, 1.8rem);
+}
+
+.service-card-content p {
+    max-width: 600px;
+
+    margin: 18px 0 25px;
+
+    color: var(--text-dim, #7b8494);
+
+    font-family: monospace;
+    font-size: 0.8rem;
+    line-height: 1.85;
+}
+
+
+/* ---------- TAGS ---------- */
+
+.service-tags {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 7px;
+}
+
+.service-tags span {
+    padding: 7px 10px;
+
+    border:
+        1px solid rgba(255,255,255,0.08);
+
+    color: #aeb7c4;
+
+    background:
+        rgba(255,255,255,0.025);
+
+    font-family: monospace;
+    font-size: 0.62rem;
+}
+
+
+/* ---------- BOTTOM ---------- */
+
+.service-card-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 20px 25px;
+
+    border-top:
+        1px solid rgba(255,255,255,0.06);
+}
+
+.service-price small {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #4d5662;
+
+    font-family: monospace;
+    font-size: 0.58rem;
+
+    letter-spacing: 0.1em;
+}
+
+.service-price strong {
+    color: #fff;
+
+    font-family: monospace;
+    font-size: 0.85rem;
+}
+
+
+/* ---------- ORDER BUTTON ---------- */
+
+.service-order {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 11px 15px;
+
+    border:
+        1px solid #00f0ff;
+
+    color: #00f0ff;
+
+    background:
+        rgba(0,240,255,0.03);
+
+    font-family: monospace;
+    font-size: 0.65rem;
+
+    text-decoration: none;
+
+    transition: 0.25s ease;
+}
+
+.service-order:hover {
+    color: #020608;
+
+    background: #00f0ff;
+
+    box-shadow:
+        0 0 25px rgba(0,240,255,0.2);
+}
+
+.service-order span {
+    font-size: 1rem;
+}
+
+.service-order-green {
+    border-color: #00ff9d;
+    color: #00ff9d;
+}
+
+.service-order-green:hover {
+    background: #00ff9d;
+}
+
+
+/* =========================================================
+   CUSTOM REQUEST
+   ========================================================= */
+
+.custom-service {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 40px;
+
+    margin-top: 24px;
+    padding: 35px;
+
+    border:
+        1px solid rgba(166,108,255,0.2);
+
+    background:
+        radial-gradient(
+            circle at 80% 50%,
+            rgba(120,60,255,0.08),
+            transparent 40%
+        ),
+        #090811;
+}
+
+.custom-service h3 {
+    margin: 5px 0 10px;
+
+    color: #fff;
+
+    font-family: monospace;
+    font-size: 1.5rem;
+}
+
+.custom-service p {
+    max-width: 650px;
+
+    margin: 0;
+
+    color: #727888;
+
+    font-family: monospace;
+    font-size: 0.78rem;
+    line-height: 1.8;
+}
+
+.custom-service-button {
+    flex-shrink: 0;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 14px 20px;
+
+    border:
+        1px solid #a66cff;
+
+    color: #a66cff;
+
+    font-family: monospace;
+    font-size: 0.68rem;
+
+    text-decoration: none;
+
+    transition: 0.25s ease;
+}
+
+.custom-service-button:hover {
+    color: #fff;
+
+    background: #713cff;
+
+    border-color: #713cff;
+
+    box-shadow:
+        0 0 30px rgba(113,60,255,0.25);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .services-heading {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 25px;
+    }
+
+    .services-intro {
+        max-width: 650px;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .services-section {
+        padding: 80px 18px;
+    }
+
+    .services-heading h2 {
+        font-size: 2.2rem;
+    }
+
+    .service-card {
+        min-height: auto;
+    }
+
+    .service-card-bottom {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .service-order {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .custom-service {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 25px;
+    }
+
+    .custom-service-button {
+        width: 100%;
+        justify-content: center;
+    }
+
+}
     </style>
 </head>
 <body>
@@ -1701,11 +2198,9 @@
 
 
             <div class="service-content">
-
                 <div class="service-icon">
                     AI
                 </div>
-
                 <div>
                     <div class="product-label">
                         FOR BUSINESS
@@ -1742,31 +2237,238 @@
     </div>
 </section>
         
-        <section id="contacts">
-            <h2 class="section-title" data-key="title_contact">04_КАНАЛ_СВЯЗИ</h2>
-            <div class="contact-layout">
-                <form action="https://api.web3forms.com/submit" method="POST" id="cyber-form">
-                    <input type="hidden" name="access_key" value="62501b13-39e7-4dc3-90ef-718fcfadd897">
-                    <!-- Honeypot spam protection element (invisible to human users, traps spam bots) -->
-                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;" tabindex="-1" autocomplete="off">
-                    <!-- Input fields with strict length validation to prevent malicious payload sizes and buffer/resource exhaustion -->
-                    <input type="text" name="name" data-placeholder="ph_name" placeholder="ВАШЕ ИМЯ //" aria-label="Your Name" maxlength="100" required>
-                    <input type="email" name="email" data-placeholder="ph_email" placeholder="EMAIL //" aria-label="Email Address" maxlength="150" required>
-                    <textarea name="message" rows="5" data-placeholder="ph_msg" placeholder="ВАШЕ СООБЩЕНИЕ //" aria-label="Your Message" maxlength="2000" required></textarea>
-                    <button type="submit" class="btn btn-pink" style="width: 100%;" data-key="btn_send">ОТПРАВИТЬ ПАКЕТ</button>
-                </form>
-                <div style="border-left: 1px solid var(--border); padding-left: 40px;">
-                    <p data-key="loc">Локация: Павлодар, Казахстан</p>
-                    <div class="social-links">
-                        <a href="https://github.com/Lev1k3305" target="_blank" class="social-item github" aria-label="GitHub Profile"><svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>
-                        <a href="https://t.me/Aldik_4005" target="_blank" class="social-item telegram" aria-label="Telegram"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.11.02-1.93 1.23-5.46 3.62-.51.35-.98.52-1.4.51-.46-.01-1.35-.26-2.01-.48-.81-.27-1.45-.42-1.39-.88.03-.24.36-.48.99-.73 3.84-1.67 6.42-2.77 7.73-3.3 3.68-1.48 4.44-1.73 4.94-1.74.11 0 .36.03.52.16.13.11.17.26.19.37.01.07.02.21.01.27z"/></svg></a>
-                        <a href="https://www.instagram.com/aldik_3305" target="_blank" class="social-item instagram" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
-                        <a href="https://wa.me/77051603072" target="_blank" class="social-item whatsapp" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.981.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></a>
-                    </div>
+        <section id="services" class="services-section">
+    <div class="services-heading">
+        <div>
+            <span class="section-index">04_УСЛУГИ</span>
+            <h2>
+                ЧТО МОЖНО<br>
+                <span>ЗАКАЗАТЬ</span>
+            </h2>
+        </div>
+        <p class="services-intro">
+            Разрабатываю цифровые продукты под конкретную
+            задачу — от идеи и дизайна до готового продукта.
+        </p>
+    </div>
+
+    <div class="services-grid">
+
+        <!-- SERVICE 01 -->
+
+        <article class="service-card">
+            <div class="service-number">
+                01
+            </div>
+            <div class="service-card-top">
+                <div class="service-icon">
+                    WEB
+                </div>
+                <span class="service-status">
+                    AVAILABLE
+                </span>
+            </div>
+
+            <div class="service-card-content">
+                <span class="service-category">
+                    WEB DEVELOPMENT
+                </span>
+                <h3>
+                    Сайт / Web-приложение
+                </h3>
+                <p>
+                    Разработка современных сайтов и web-приложений
+                    под бизнес, продукт или личный проект.
+                    Адаптивный интерфейс, анимации, интеграции
+                    и готовый deployment.
+                </p>
+                <div class="service-tags">
+                    <span>Next.js</span>
+                    <span>React</span>
+                    <span>TypeScript</span>
+                    <span>API</span>
                 </div>
             </div>
-        </section>
+            
+            <div class="service-card-bottom">
+                <div class="service-price">
+                    <small>СТАРТ</small>
+                    <strong>от 80 000 ₸</strong>
+                </div>
+                <a href="#contact" class="service-order">
+                    ЗАКАЗАТЬ
+                    <span>↗</span>
+                </a>
+            </div>
+        </article>
+
+        <!-- SERVICE 02 -->
+
+        <article class="service-card">
+            <div class="service-number">
+                02
+            </div>
+            <div class="service-card-top">
+                <div class="service-icon service-icon-ai">
+                    AI
+                </div>
+                <span class="service-status">
+                    AVAILABLE
+                </span>
+            </div>
+
+            <div class="service-card-content">
+                <span class="service-category">
+                    AI DEVELOPMENT
+                </span>
+                <h3>
+                    AI-продукт
+                </h3>
+                <p>
+                    AI-ассистенты, интеллектуальные сервисы,
+                    анализ данных, AI-функции внутри сайтов
+                    и приложений, интеграция современных AI-моделей.
+                </p>
+                <div class="service-tags">
+                    <span>AI</span>
+                    <span>Python</span>
+                    <span>API</span>
+                    <span>Automation</span>
+                </div>
+            </div>
+
+            <div class="service-card-bottom">
+                <div class="service-price">
+                    <small>СТАРТ</small>
+                    <strong>от 120 000 ₸</strong>
+                </div>
+                <a href="#contact" class="service-order">
+                    ЗАКАЗАТЬ
+                    <span>↗</span>
+                </a>
+            </div>
+        </article>
+
+
+        <!-- SERVICE 03 -->
+
+        <article class="service-card">
+            <div class="service-number">
+                03
+            </div>
+            <div class="service-card-top">
+                <div class="service-icon service-icon-mobile">
+                    APP
+                </div>
+                <span class="service-status">
+                    AVAILABLE
+                </span>
+            </div>
+
+            <div class="service-card-content">
+                <span class="service-category">
+                    MOBILE DEVELOPMENT
+                </span>
+                <h3>
+                    Мобильное приложение
+                </h3>
+                <p>
+                    Разработка мобильных приложений для Android
+                    и iOS с современным интерфейсом,
+                    авторизацией, API и необходимой логикой.
+                </p>
+                <div class="service-tags">
+                    <span>Flutter</span>
+                    <span>Dart</span>
+                    <span>Supabase</span>
+                    <span>Firebase</span>
+                </div>
+            </div>
+
+            <div class="service-card-bottom">
+                <div class="service-price">
+                    <small>СТАРТ</small>
+                    <strong>от 150 000 ₸</strong>
+                </div>
+                <a href="#contact" class="service-order">
+                    ЗАКАЗАТЬ
+                    <span>↗</span>
+                </a>
+            </div>
+        </article>
+        
+        <!-- SERVICE 04 -->
+
+        <article class="service-card service-card-mvp">
+            <div class="service-number">
+                04
+            </div>
+            <div class="service-card-top">
+                <div class="service-icon service-icon-mvp">
+                    MVP
+                </div>
+                <span class="service-status service-status-green">
+                    CUSTOM
+                </span>
+            </div>
+
+            <div class="service-card-content">
+                <span class="service-category">
+                    PRODUCT DEVELOPMENT
+                </span>
+                <h3>
+                    MVP под идею
+                </h3>
+                <p>
+                    Есть идея продукта, но нет готовой реализации?
+                    Спроектирую концепцию, интерфейс и разработаю
+                    рабочий MVP, который можно показать пользователям
+                    или запустить в рынок.
+                </p>
+                <div class="service-tags">
+                    <span>Idea</span>
+                    <span>UI/UX</span>
+                    <span>Development</span>
+                    <span>Launch</span>
+                </div>
+            </div>
+
+            <div class="service-card-bottom">
+                <div class="service-price">
+                    <small>РАСЧЁТ</small>
+                    <strong>ИНДИВИДУАЛЬНО</strong>
+                </div>
+                <a href="#contact" class="service-order service-order-green">
+                    ОБСУДИТЬ
+                    <span>↗</span>
+                </a>
+            </div>
+        </article>
     </div>
+
+    <!-- CUSTOM REQUEST -->
+
+    <div class="custom-service">
+        <div class="custom-service-left">
+            <span class="section-index">
+                CUSTOM_REQUEST
+            </span>
+            <h3>
+                Не нашли нужную услугу?
+            </h3>
+            <p>
+                Опишите задачу. Если это связано с разработкой
+                цифрового продукта — разберём идею и подберём
+                подходящий формат разработки.
+            </p>
+        </div>
+
+        <a href="#contact" class="custom-service-button">
+            ОБСУДИТЬ ИДЕЮ
+            <span>↗</span>
+        </a>
+    </div>
+</section>
 
     <script>
         const translations = {
