@@ -25,3 +25,7 @@
 ## 2026-08-06 - Eliminating Render-Blocking Google Fonts stylesheets
 **Learning:** Standard `<link rel="stylesheet">` tags for web fonts block page rendering while fetching the CSS from the server, causing higher First Contentful Paint times. Loading the primary font asynchronously with `media="print" onload="this.media='all'"` completely unblocks the critical rendering path, using standard browser fallback fonts during the brief fetching phase (with `display=swap`).
 **Action:** Always load critical but non-layout-critical third-party stylesheets using the non-blocking media toggle method with a `<noscript>` fallback.
+
+## 2026-08-11 - High-Value LCP Optimization via Hero Asset Compression
+**Learning:** Rendering full-resolution (750x343), 70-frame animated GIFs for a hero display box that is explicitly constrained to 160px width in CSS is a major layout-rendering and bandwidth bottleneck. Halving the image dimensions, skipping alternate frames, converting to an adaptive color palette, and doubling frame duration reduces size from 4.01MB to 643KB (~84% savings) while keeping the visual speed and rendering quality indistinguishable.
+**Action:** Always audit above-the-fold media/GIF sizes against their actual CSS viewport dimensions, optimize palette color depth, and drop redundant animation frames to maximize LCP.
