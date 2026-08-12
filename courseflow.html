@@ -13,11 +13,23 @@
     >
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
+    <!-- BOLT: Load primary font asynchronously using the media="print" onload="this.media='all'" technique
+         to eliminate a render-blocking stylesheet on the critical path. Falls back to standard loading
+         when javascript is disabled. -->
     <link
         href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap"
         rel="stylesheet"
+        media="print"
+        onload="this.media='all'"
     >
+    <noscript>
+        <link
+            href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap"
+            rel="stylesheet"
+        >
+    </noscript>
 
     <style>
 
@@ -92,6 +104,9 @@
             pointer-events: none;
 
             z-index: 9999;
+
+            /* BOLT: Promote fixed scanline overlay to its own compositor layer to reduce repaint cost during scroll */
+            will-change: transform;
         }
 
         /* =========================

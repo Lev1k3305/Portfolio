@@ -25,3 +25,7 @@
 ## 2026-08-06 - Eliminating Render-Blocking Google Fonts stylesheets
 **Learning:** Standard `<link rel="stylesheet">` tags for web fonts block page rendering while fetching the CSS from the server, causing higher First Contentful Paint times. Loading the primary font asynchronously with `media="print" onload="this.media='all'"` completely unblocks the critical rendering path, using standard browser fallback fonts during the brief fetching phase (with `display=swap`).
 **Action:** Always load critical but non-layout-critical third-party stylesheets using the non-blocking media toggle method with a `<noscript>` fallback.
+
+## 2026-08-12 - Performance Harmonization on Secondary Case Studies
+**Learning:** When performing optimizations, focus on all user-accessible static pages (including case study and secondary HTML pages like `courseflow.html`), not just the main landing page. Synchronizing optimizations (such as `preconnect` resource hints, non-blocking asynchronous font loading, and promoting fixed overlays to independent compositor layers via `will-change: transform`) ensures a fast and consistent performance profile across the entire site.
+**Action:** Audit and apply primary-page performance standards to all auxiliary HTML and static documents.
