@@ -6,6 +6,8 @@
     <title>Prosto_Proger // DEDSEC_OPERATIVE</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- BOLT: Preload the optimized primary hero GIF to reduce Largest Contentful Paint (LCP) time.
+         Optimized from 4.01MB to 643KB via 50% dimensions scaling, 50% frame reduction, and adaptive palette quantization. -->
     <link rel="preload" href="scr/assets/image.gif" as="image" fetchpriority="high">
     <!-- BOLT: Load primary font asynchronously using the media="print" onload="this.media='all'" technique
          to eliminate a render-blocking stylesheet on the critical path. Falls back to standard loading
@@ -2252,6 +2254,8 @@
 
     <div class="container">
         <section id="home" style="border:none">
+            <!-- BOLT: Hero GIF is heavily optimized (375x171 natural size, reduced frame-rate, 643KB file size)
+                 to match viewport constraints perfectly and avoid unnecessary download weight. -->
             <div class="profile-card"><img src="scr/assets/image.gif" alt="Prosto_Proger" width="160" height="73" decoding="async"></div>
             <div class="hero-info">
                 <div style="display: flex; align-items: center; justify-content: center; gap: 5px; margin-bottom: 5px;">
